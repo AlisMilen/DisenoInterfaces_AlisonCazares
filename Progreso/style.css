@@ -1,0 +1,219 @@
+.encabezado
+{
+    margin-top: 0px;
+    border: 1px solid green;
+    width: 100%;
+    height: 300px;
+    /* background-image: url('imagenes/imagen_arriba2.png'); */
+    background-image: url('imagenes/prueba2.jpg');
+    object-fit: contain;
+    /* object-fit: cover; */
+    background-size: 100% 300px;
+    background-repeat: no-repeat;
+}
+/*<meta name="viewport" content="width=device-width, initial-scale=1.0">*/
+body
+{
+    margin: 0px;
+}
+
+#menu
+{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: right;
+    font-size: 12px;
+    margin: auto;
+    display: inline;
+    float: right;
+}
+#logo
+{
+    width: 20%;
+    height: 30%;
+    margin-top: 0%;
+    position: absolute;
+}
+.logotipo
+{
+    width: 20%;
+    height: 30%;
+    margin-top: 5px;
+}
+.tema
+{
+    text-align: center;
+    color: white;
+    font-family: "cursive";
+}
+.perfil
+{
+    text-align: center;
+    margin-top: 0px;
+}
+.tema p
+{
+    font-family: Arial;
+    text-align: center;
+}
+
+h1
+{
+    margin-top: 130px;
+    text-align: center;
+}
+.botones
+{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+.botones button
+{
+    background-color: transparent;
+    border-color: white;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 7px;
+    margin-left: 50px;
+}
+.prueba_iconos
+{
+    width: 40%;
+    height: 150px;
+    background-image: url('imagenes/Icono1.png');
+    background-size: cover;
+    background-size: 40% 150px;
+    background-repeat: no-repeat;
+}
+
+body>p /*EDITAR TEXTO EN GENERAL*/
+{
+    color: #80b1ed;
+    text-align: center;
+    font-size: 20px;
+    margin-left: auto;
+}
+/*****************************************/
+.iconos/*CLASS*/
+{
+    width: 50%;
+    margin-top: 50px;
+    margin-left: 40%;
+    margin-right: 20%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    /* margin: auto; */
+    /* align-items: center; */
+}
+
+.ima_icono1/*PRIMER ICONO, IMAGEN*/
+{
+    margin-left: 20%;
+    width: 20%;
+    margin: auto;
+}
+.Icono2/*CENTRAR ICONO 2*/
+{
+    /* margin-left: 20%; */
+    margin: auto;
+}
+.Icono3/*CENTRAR ICONO 3*/
+{
+    /* margin-left: 20%; */
+    margin: auto;
+}
+
+
+#iconos
+{
+    margin: auto;
+    display: flex;
+}
+
+#iconos p/*TEXTO 1, 2 Y TEXTO 3 DE LOS ICONOS*/
+{
+    color: black;
+    text-align: center;
+    margin: auto;
+}
+/*****************************************/
+
+
+
+/*DIV COMENTARIO 1*/
+#Comentario1
+{
+    position: relative;
+    width: 40%;
+    margin-left: 200px;
+    margin-top: 100px;
+}
+.Foto_coment1 /*POSICIÓN DE LA FOTO DEL PRIMER COMENTARIO*/
+{
+    position: relative;
+    width: auto;
+    height: 120px;
+}
+.Coment1 /*FUENTES DEL COMENTARIO 1*/
+{
+    font-size: 14px;
+    color: black;
+    margin-left: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.persona1 /**/
+{
+    color: #80b1ed;
+    font-size: 13px;
+    margin-left: 0px;
+}
+
+/*DIV COMENTARIO 2*/
+#Comentario2
+{
+    position: relative;
+    margin-top: auto;
+    margin-left: 50%;
+}
+.Foto_coment2
+{
+    position: relative;
+    width: auto;
+    height: 120px;
+}
+.Coment2
+{
+    font-size: 14px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 0px;
+}
+.persona2
+{
+    color: #80b1ed;
+    font-size: 13px;
+    margin-right: 0px;
+}
+
+
+.pie
+{
+    margin-bottom: 0px;
+    border: 1px solid grey;
+    width: 100%;
+    height: 200px;
+    background-color: rgb(60, 60, 88);
+    background-size: 100% 200px;
+    background-repeat: no-repeat;
+}
+
+.pie h1,p
+{
+    color: white;
+    margin-left: 15%;
+    font-family: Arial;
+}
