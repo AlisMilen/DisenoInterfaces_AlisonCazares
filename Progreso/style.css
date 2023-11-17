@@ -3,12 +3,11 @@
     margin-top: 0px;
     border: 1px solid green;
     width: 100%;
-    height: 300px;
-    /* background-image: url('imagenes/imagen_arriba2.png'); */
+    height: 330px;
     background-image: url('imagenes/prueba2.jpg');
     object-fit: contain;
     /* object-fit: cover; */
-    background-size: 100% 300px;
+    background-size: 100% 330px;
     background-repeat: no-repeat;
 }
 /*<meta name="viewport" content="width=device-width, initial-scale=1.0">*/
@@ -19,37 +18,46 @@ body
 
 #menu
 {
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
     text-align: right;
+}
+#menu button
+{
+    background-color: transparent;
+    border: 0px;
+    color: white;
+    display: inline-block;
+    padding: 0px 10px;
+    margin: 0px;
+    margin-top: 0px;
     font-size: 12px;
-    margin: auto;
-    display: inline;
-    float: right;
+    font-family: Arial, Helvetica, sans-serif;
 }
-#logo
+#marca_logo
 {
-    width: 20%;
-    height: 30%;
-    margin-top: 0%;
+    background-image: url('imagenes/marca_logo5.png');
+    object-fit: contain;
+    background-size: contain;
+    /* background-color: red; */
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 30%;
     position: absolute;
+    margin-left: 110px;
 }
-.logotipo
-{
-    width: 20%;
-    height: 30%;
-    margin-top: 5px;
-}
+
 .tema
 {
     text-align: center;
     color: white;
     font-family: "cursive";
 }
-.perfil
+.encabezado p/*BIENVENIDO SR SACRISTAN*/
 {
     text-align: center;
+    margin: auto;
     margin-top: 0px;
+    font-size: 15px;
+    font-family: arial;
 }
 .tema p
 {
@@ -57,7 +65,7 @@ body
     text-align: center;
 }
 
-h1
+.tema h1
 {
     margin-top: 130px;
     text-align: center;
@@ -67,6 +75,9 @@ h1
     margin: auto;
     width: 50%;
     padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .botones button
 {
@@ -75,19 +86,16 @@ h1
     color: white;
     border-radius: 5px;
     padding: 10px 7px;
-    margin-left: 50px;
+    margin: 10px;
+    margin-top: 0px;
 }
-.prueba_iconos
+.botones button:hover
 {
-    width: 40%;
-    height: 150px;
-    background-image: url('imagenes/Icono1.png');
-    background-size: cover;
-    background-size: 40% 150px;
-    background-repeat: no-repeat;
+    background-color: white;
+    color: black;
 }
 
-body>p /*EDITAR TEXTO EN GENERAL*/
+body>p /*EDITAR TEXTO EN GENERAL*//*LO QUE NUESTROS CLIENTES DICEN*/
 {
     color: #80b1ed;
     text-align: center;
@@ -98,51 +106,56 @@ body>p /*EDITAR TEXTO EN GENERAL*/
 .iconos/*CLASS*/
 {
     width: 50%;
-    margin-top: 50px;
     margin-left: 40%;
     margin-right: 20%;
     display: flex;
-    flex-flow: row wrap;
+    /* flex-flow: row wrap; */
+    align-items: center;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
-    /* margin: auto; */
-    /* align-items: center; */
 }
 
 .ima_icono1/*PRIMER ICONO, IMAGEN*/
 {
-    margin-left: 20%;
-    width: 20%;
-    margin: auto;
+    /* margin-left: 20%; */
+    width: 18%;
+    margin: 40px;
+    margin-bottom: 5px;
 }
 .Icono2/*CENTRAR ICONO 2*/
 {
     /* margin-left: 20%; */
-    margin: auto;
+    margin: 40px;
+    margin-bottom: 5px;
 }
 .Icono3/*CENTRAR ICONO 3*/
 {
     /* margin-left: 20%; */
-    margin: auto;
+    margin: 40px;
+    margin-bottom: 5px;
 }
 
-
-#iconos
+#iconos/*TEXTO: NUESTRO HORARIO, NUEVOS PROYECTOS...*/
 {
-    margin: auto;
+    margin-left: 25%;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0px;
+    width: 50%;
 }
 
 #iconos p/*TEXTO 1, 2 Y TEXTO 3 DE LOS ICONOS*/
 {
     color: black;
     text-align: center;
-    margin: auto;
+    margin: 40px;
+    margin-top: 0px;
+    font-size: 13px;
 }
+
 /*****************************************/
-
-
 
 /*DIV COMENTARIO 1*/
 #Comentario1
@@ -150,7 +163,7 @@ body>p /*EDITAR TEXTO EN GENERAL*/
     position: relative;
     width: 40%;
     margin-left: 200px;
-    margin-top: 100px;
+    margin-top: 40px;
 }
 .Foto_coment1 /*POSICIÓN DE LA FOTO DEL PRIMER COMENTARIO*/
 {
@@ -170,39 +183,46 @@ body>p /*EDITAR TEXTO EN GENERAL*/
     color: #80b1ed;
     font-size: 13px;
     margin-left: 0px;
+    margin-top: 0px;
 }
 
 /*DIV COMENTARIO 2*/
 #Comentario2
 {
     position: relative;
-    margin-top: auto;
-    margin-left: 50%;
+    width: 40%;
+    margin-top: 40px;
+    margin-left: 45%;
 }
 .Foto_coment2
 {
     position: relative;
     width: auto;
     height: 120px;
+    align-content: center;
+    margin-left: 200px;
 }
 .Coment2
 {
     font-size: 14px;
     color: black;
     font-family: Arial, Helvetica, sans-serif;
-    margin-left: 0px;
+    /* margin-left: 0px; */
+    text-align: right;
 }
 .persona2
 {
     color: #80b1ed;
     font-size: 13px;
+    text-align: right;
     margin-right: 0px;
+    margin-top: 0px;
 }
 
-
+/*PIE DE PAGINA */
 .pie
 {
-    margin-bottom: 0px;
+    /* margin-bottom: 0px; */
     border: 1px solid grey;
     width: 100%;
     height: 200px;
@@ -210,10 +230,40 @@ body>p /*EDITAR TEXTO EN GENERAL*/
     background-size: 100% 200px;
     background-repeat: no-repeat;
 }
-
+#marca_logo2
+{
+    background-image: url('imagenes/marca_logo5.png');
+    object-fit: contain;
+    background-size: contain;
+    /* background-color: red; */
+    background-repeat: no-repeat;
+    height: 170px;
+    width: 30%;
+    position: relative;
+    margin-left: 65%;
+    margin-top: -170px;
+}
+.logoletra
+{
+    margin-top: -140px;
+    margin-left: 80%;
+}
+.pie p
+{
+    width: 50%;
+}
+#grande
+{
+    color: white;
+    margin-left: 100px;
+    font-family: Arial;
+    font-size: 25px;
+}
 .pie h1,p
 {
     color: white;
-    margin-left: 15%;
+    margin-left: 100px;
     font-family: Arial;
+    font-size: 15px;
+    margin-top: 30px;
 }
