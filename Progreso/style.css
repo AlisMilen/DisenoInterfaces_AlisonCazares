@@ -37,7 +37,8 @@ body
 }
 #menu button:hover
 {
-    background-color: rgb(108, 108, 207);
+    font-weight: bold;
+    /* background-color: rgb(108, 108, 207); */
 }
 #marca_logo
 {
@@ -60,10 +61,13 @@ body
 .encabezado p/*BIENVENIDO SR SACRISTAN*/
 {
     text-align: center;
+    position: fixed;
     margin: auto;
-    margin-top: 0px;
+    top: 10px;
     font-size: 15px;
     font-family: arial;
+    left: 50%; 
+    transform: translate(-50%, -50%); /* Ajusta la posición a la mitad del ancho y alto */
 }
 .tema p
 {
@@ -180,7 +184,7 @@ body>p /*EDITAR TEXTO EN GENERAL*//*LO QUE NUESTROS CLIENTES DICEN*/
     margin-right: auto; /* Alinea el margen derecho en el eje central */
 }
 /*DIV COMENTARIO 2*/
-#Comentario2 
+.comentarios div:nth-child(2)
 {
     margin-left: auto; /* Alinea el margen izquierdo en el eje central */
     margin-bottom: 20px;
