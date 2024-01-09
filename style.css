@@ -1,0 +1,318 @@
+.encabezado
+{
+    margin-top: 0;
+    border: 1px solid green;
+    width: 100%;
+    height: 40vh;
+    background-image: url('imagenes/prueba2.jpg');
+    object-fit: contain;
+    background-size: 100% 40vh;
+    background-repeat: no-repeat;
+}
+
+html, body
+{
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+body
+{
+    margin: 0;
+}
+
+#menu
+{
+    text-align: right;
+}
+
+#menu button
+{
+    background-color: transparent;
+    border: 0;
+    color: white;
+    display: inline-block;
+    padding: 0 2%;
+    margin: 0;
+    margin-top: 0;
+    font-size: 0.9rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#menu button:hover
+{
+    font-weight: bold;
+}
+
+#marca_logo
+{
+    background-image: url('imagenes/marca_logo5.png');
+    object-fit: contain;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 10vh;
+    width: 20%;
+    position: absolute;
+    margin-left: 5vw;
+}
+
+.tema
+{
+    text-align: center;
+    color: white;
+    font-family: "cursive";
+}
+
+.encabezado p
+{
+    text-align: center;
+    position: fixed;
+    margin: auto;
+    top: 2vh;
+    font-size: 1.5vw;
+    font-family: Arial;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tema p
+{
+    font-family: Arial;
+    text-align: center;
+}
+
+.tema h1
+{
+    margin-top: 8vh;
+    text-align: center;
+}
+
+.botones
+{
+    margin: auto;
+    width: 80%;
+    padding: 1.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botones button
+{
+    background-color: transparent;
+    border-color: white;
+    color: white;
+    border-radius: 5px;
+    padding: 1% 0.7%;
+    margin: 1.5%;
+    margin-top: 0;
+}
+
+.botones button:hover
+{
+    background-color: white;
+    color: black;
+}
+
+body > p
+{
+    color: #80b1ed;
+    text-align: center;
+    font-size: 2vw;
+    margin-left: auto;
+}
+
+/* ****************************ICONOS**************************** */
+.iconos 
+{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ima_icono1 
+{
+    /* width: 5%; */
+    /* margin: 2vh;
+    margin-bottom: 0.5vh; */
+    margin-right: 5%;
+}
+
+.Icono2 
+{
+    /* margin: 2vh;
+    margin-bottom: 0.5vh; */
+    margin-right: 5%;
+}
+
+/* .Icono3 
+{
+    margin: 2vh;
+    margin-bottom: 0.5vh;
+} */
+
+/* ************************TEXTO DE ICONOS************************** */
+.ima_icono1,.Icono2,.Icono3
+{
+    flex-grow: 1;
+    width: 5%;
+    margin-bottom: 0.5vh;
+}
+
+.ima_icono1,.Icono2,.Icono3
+{
+    width: 5%;
+    margin: 2vh;
+}
+
+#iconos
+{
+    margin-left: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+    width: 80%;
+}
+
+#iconos button {
+    background-color: transparent;
+    border: 0;
+    color: black;
+    text-align: center;
+    margin: 2vh;
+    margin-top: 0;
+    font-size: 1.3vw;
+}
+
+#iconos button:hover {
+    background-color: transparent;
+    font-weight: bold;
+}
+
+/* ************************COMENTARIOS GENERAL**************************** */
+.comentarios
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.comentarios > div:first-child 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 50%; /* Ocupa la mitad del ancho de la pantalla */
+    margin-left: 0; /* Coloca el margen izquierdo a cero */
+    margin-top: 4vh;
+    margin-right: auto;
+}
+
+.comentarios div:nth-child(2)
+{
+    margin-left: auto;
+    margin-bottom: 2vh;
+    width: 80%;
+    margin-left: 10%;
+}
+
+/* ***********************COMENTARIO 1******************************* */
+.Foto_coment1
+{
+    width: auto;
+    height: 10vh;
+}
+
+.Coment1 
+{
+    font-size: 1.5vw;
+    color: black;
+    margin-left: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.persona1
+{
+    color: #80b1ed;
+    font-size: 1.3vw;
+    margin-left: 0; /* Ajusta según tus preferencias */
+    margin-top: 0.5vh; /* Ajusta según tus preferencias */
+    text-align: left;
+}
+/* ***********************COMENTARIO 2******************************* */
+.Foto_coment2 {
+    position: relative;
+    width: auto;
+    height: 10vh;
+    align-content: center;
+    margin-left: 10%;
+}
+
+.Coment2 {
+    font-size: 1.5vw;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 0;
+    text-align: right;
+}
+
+.persona2 {
+    color: #80b1ed;
+    font-size: 1.3vw;
+    text-align: right;
+    margin-right: 0;
+    margin-top: 0;
+}
+
+/* **********************PIE DE PÁGINA***************************** */
+.pie {
+    border: 1px solid grey;
+    width: 100%;
+    height: 35vh;
+    background-color: rgb(60, 60, 88);
+    background-size: 100% 35vh;
+    background-repeat: no-repeat;
+}
+
+#marca_logo2
+{
+    background-image: url('imagenes/marca_logo5.png');
+    object-fit: contain;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 17vh;
+    width: 20%;
+    position: relative;
+    margin-left: 20%;
+    margin-top: -17vh;
+}
+
+.logoletra {
+    margin-top: -14vh;
+    margin-left: 26%;
+}
+
+.pie p {
+    width: 40%;
+}
+
+#grande {
+    color: white;
+    margin-left: 10%;
+    font-family: Arial;
+    font-size: 2.5vw;
+}
+
+.pie h1, p {
+    color: white;
+    margin-left: 10%;
+    font-family: Arial;
+    font-size: 1.5vw;
+    margin-top: 4vh;
+}
