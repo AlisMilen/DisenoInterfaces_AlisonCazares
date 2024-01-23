@@ -50,8 +50,8 @@ body
     object-fit: contain;
     background-size: contain;
     background-repeat: no-repeat;
-    height: 10vh;
-    width: 20%;
+    height: 20vh;
+    width: 40%;
     position: absolute;
     margin-left: 5vw;
 }
@@ -122,7 +122,7 @@ body > p
     margin-left: auto;
 }
 
-/* ****************************ICONOS**************************** */
+/* ****************************ICONOS IMAGENES**************************** */
 .iconos 
 {
     width: 30%;
@@ -131,42 +131,19 @@ body > p
     justify-content: space-between;
     margin-left: auto;
     margin-right: auto;
+    
 }
 
-.ima_icono1 
-{
-    /* width: 5%; */
-    /* margin: 2vh;
-    margin-bottom: 0.5vh; */
-    margin-right: 5%;
-}
-
-.Icono2 
-{
-    /* margin: 2vh;
-    margin-bottom: 0.5vh; */
-    margin-right: 5%;
-}
-
-/* .Icono3 
-{
-    margin: 2vh;
-    margin-bottom: 0.5vh;
-} */
-
-/* ************************TEXTO DE ICONOS************************** */
 .ima_icono1,.Icono2,.Icono3
 {
+    /* REVISAR ESPACIO ENTRE ICONOS(IMAGENES) */
     flex-grow: 1;
     width: 5%;
     margin-bottom: 0.5vh;
+    margin-left: 2vh;
 }
 
-.ima_icono1,.Icono2,.Icono3
-{
-    width: 5%;
-    margin: 2vh;
-}
+/* ************************TEXTO DE ICONOS************************** */
 
 #iconos
 {
@@ -251,7 +228,7 @@ body > p
     width: auto;
     height: 10vh;
     align-content: center;
-    margin-left: 10%;
+    margin-left: 50%;
 }
 
 .Coment2 {
@@ -289,13 +266,13 @@ body > p
     height: 17vh;
     width: 20%;
     position: relative;
-    margin-left: 20%;
-    margin-top: -17vh;
+    margin-left: 70%;
+    margin-top: -22vh;
 }
 
 .logoletra {
     margin-top: -14vh;
-    margin-left: 26%;
+    margin-left: 80%;
 }
 
 .pie p {
@@ -315,4 +292,165 @@ body > p
     font-family: Arial;
     font-size: 1.5vw;
     margin-top: 4vh;
+}
+
+
+/* ****************************************************************** */
+/**************** DISPOITIVOS MEDIANOS (768px - Tablets)***************/
+@media only screen and (max-width: 768px) {
+    .encabezado {
+        height: 25vh;
+        background-size: 100% 25vh;
+    }
+
+    .botones {
+        width: 80%;
+    }
+
+    .botones button {
+        font-size: 1rem;
+    }
+
+    .iconos {
+        width: 80%;
+    }
+
+    .ima_icono1, .Icono2, .Icono3 {
+        width: 15%;
+    }
+
+    #iconos {
+        margin-left: 10%;
+        width: 80%;
+    }
+
+    #iconos button {
+        font-size: 1rem;
+        margin: 1vh;
+    }
+
+    .comentarios > div:first-child {
+        width: 80%;
+    }
+
+    .comentarios div:nth-child(2) {
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .Foto_coment1,
+    .Foto_coment2 {
+        height: 12vh;
+    }
+
+    .Coment1,
+    .Coment2,
+    .persona1,
+    .persona2 {
+        font-size: 1rem;
+    }
+
+    .pie {
+        height: 20vh;
+        background-size: 100% 20vh;
+    }
+
+    #marca_logo2 {
+        height: 12vh;
+        margin-top: -16vh;
+    }
+
+    .logoletra {
+        margin-top: -12vh;
+    }
+
+    #grande {
+        font-size: 1.5rem;
+    }
+
+    .pie h1,
+    .pie p {
+        font-size: 1rem;
+    }
+}
+
+
+
+/* ********************DISPOSITIVOS GRANDES(1024PX)************************ */
+@media only screen and (min-width: 768px) and (max-width: 1024px)
+{
+    .encabezado {
+        height: 30vh;
+        background-size: 100% 30vh;
+    }
+
+    .botones {
+        width: 70%;
+    }
+
+    .botones button {
+        font-size: 1.2rem;
+    }
+
+    .iconos {
+        width: 60%;
+    }
+
+    .ima_icono1, .Icono2, .Icono3 {
+        width: 8%;
+    }
+
+    #iconos {
+        margin-left: 10%;
+        width: 80%;
+    }
+
+    #iconos button {
+        font-size: 1.2rem;
+        margin: 1vh;
+    }
+
+    .comentarios > div:first-child {
+        width: 80%;
+    }
+
+    .comentarios div:nth-child(2) {
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .Foto_coment1,
+    .Foto_coment2 {
+        height: 10vh;
+    }
+
+    .Coment1,
+    .Coment2,
+    .persona1,
+    .persona2 {
+        font-size: 1.2rem;
+    }
+
+    .pie {
+        height: 25vh;
+        background-size: 100% 25vh;
+    }
+
+    #marca_logo2 {
+        height: 12vh;
+        margin-top: -16vh;
+    }
+
+    .logoletra {
+        margin-top: -12vh;
+    }
+
+    #grande {
+        font-size: 2rem;
+    }
+
+    .pie h1,
+    .pie p {
+        font-size: 1.2rem;
+    }
 }
