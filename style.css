@@ -1,3 +1,81 @@
+/********************** DISPOSITIVOS PEQUEÑOS (MOVILES)********************/
+@media only screen and (max-width: 320)
+{
+    .encabezado {
+        height: 30vh;
+        background-size: 100% 30vh;
+    }
+
+    .botones {
+        width: 90%;
+    }
+
+    .botones button {
+        font-size: 1rem;
+    }
+
+    .iconos {
+        width: 70%;
+    }
+
+    .ima_icono1, .Icono2, .Icono3 {
+        width: 10%;
+    }
+
+    #iconos {
+        margin-left: 5%;
+        width: 90%;
+    }
+
+    #iconos button {
+        font-size: 1rem;
+        margin: 1vh;
+    }
+
+    .comentarios > div:first-child {
+        width: 90%;
+    }
+
+    .comentarios div:nth-child(2) {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .Foto_coment1,
+    .Foto_coment2 {
+        height: 8vh;
+    }
+
+    .Coment1,
+    .Coment2,
+    .persona1,
+    .persona2 {
+        font-size: 1rem;
+    }
+
+    .pie {
+        height: 25vh;
+        background-size: 100% 25vh;
+    }
+
+    #marca_logo2 {
+        height: 12vh;
+        margin-top: -16vh;
+    }
+
+    .logoletra {
+        margin-top: -12vh;
+    }
+
+    #grande {
+        font-size: 2rem;
+    }
+
+    .pie h1,
+    .pie p {
+        font-size: 1rem;
+    }
+}
 .encabezado
 {
     margin-top: 0;
