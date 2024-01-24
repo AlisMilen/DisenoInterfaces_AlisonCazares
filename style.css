@@ -2,9 +2,19 @@
 @media only screen and (max-width: 320)
 {
     .encabezado {
-        height: 30vh;
+        height: 10vh;
         background-size: 100% 30vh;
     }
+
+    /* .encabezado
+{
+    width: 100%;
+    height: 40vh;
+    background-image: url('imagenes/prueba2.jpg');
+    object-fit: contain;
+    background-size: 100% 40vh;
+    background-repeat: no-repeat;
+} */
 
     .botones {
         width: 90%;
@@ -76,6 +86,9 @@
         font-size: 1rem;
     }
 }
+
+/* ******************************************************************************* */
+/* **************************CÓDIGO PRINCIPAL************************************* */
 .encabezado
 {
     margin-top: 0;
@@ -375,14 +388,47 @@ body > p
 
 /* ****************************************************************** */
 /**************** DISPOITIVOS MEDIANOS (768px - Tablets)***************/
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 320px) and (max-width: 768px)
+{
     .encabezado {
-        height: 25vh;
-        background-size: 100% 25vh;
+        height: 35vh;
+        background-size: 100% 40vh;
+        padding-top: 4%;
     }
 
+    #menu
+    {
+        float: right;
+        text-align: center;
+    }
+    /* MENU */
+    #menu button
+    {
+        background-color: transparent;
+        border: 0;
+        color: white;
+        display: block;
+        padding: 1% 2%;
+        margin: 1em;
+        margin-top: 0;
+        font-size: 0.9rem;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #marca_logo
+    {
+        background-image: url('imagenes/sustituir.jpg');
+        object-fit: contain;
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 10vh;
+        width: 40%;
+        position: absolute;
+        margin-left: 5vw;
+    }
+    
     .botones {
-        width: 80%;
+        width: 60%;
     }
 
     .botones button {
@@ -390,7 +436,7 @@ body > p
     }
 
     .iconos {
-        width: 80%;
+        width: 45%;
     }
 
     .ima_icono1, .Icono2, .Icono3 {
@@ -398,56 +444,63 @@ body > p
     }
 
     #iconos {
-        margin-left: 10%;
-        width: 80%;
+        margin-left: 15%;
+        width: 69%;
     }
 
     #iconos button {
-        font-size: 1rem;
+        font-size: 1.8vw;
         margin: 1vh;
     }
-
+    
+/* ***********COMENTARIOS************** */
     .comentarios > div:first-child {
-        width: 80%;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .comentarios div:nth-child(2) {
-        width: 80%;
+        width: 50%;
         margin-left: 10%;
+        margin-right: 30%;
     }
 
-    .Foto_coment1,
-    .Foto_coment2 {
+    .Foto_coment1, .Foto_coment2 {
         height: 12vh;
     }
 
-    .Coment1,
-    .Coment2,
-    .persona1,
-    .persona2 {
+    .Coment1, .Coment2, .persona1, .persona2 {
         font-size: 1rem;
     }
-
+    .Coment2
+    {
+        /* CENTRAR TEXTO DE COMENTARIO */
+        text-align: center;
+        margin-left: 20%;
+    }
+/* **************PIE***************** */
     .pie {
-        height: 20vh;
+        height: 30vh;
         background-size: 100% 20vh;
     }
 
     #marca_logo2 {
         height: 12vh;
         margin-top: -16vh;
+        margin-left: 57%;
     }
 
     .logoletra {
         margin-top: -12vh;
+        margin-left: 70%;
     }
 
     #grande {
         font-size: 1.5rem;
     }
 
-    .pie h1,
-    .pie p {
+    .pie h1, .pie p {
         font-size: 1rem;
     }
 }
@@ -463,7 +516,7 @@ body > p
     }
 
     .botones {
-        width: 70%;
+        width: 60%;
     }
 
     .botones button {
@@ -471,23 +524,25 @@ body > p
     }
 
     .iconos {
-        width: 60%;
+        width: 50%;
     }
-
     .ima_icono1, .Icono2, .Icono3 {
         width: 8%;
     }
-
     #iconos {
         margin-left: 10%;
         width: 80%;
     }
-
     #iconos button {
         font-size: 1.2rem;
         margin: 1vh;
     }
 
+    /* Primer item de comentarios:
+    width: 60%
+    En código general: quitar margin-left y right
+    (Para situarlo en el medio)
+    */
     .comentarios > div:first-child {
         width: 80%;
     }
