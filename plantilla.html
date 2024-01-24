@@ -2,9 +2,16 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
-        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        <!-- ------ETIQUETA DE AUDIO, QUE SE ESCUCHE AL FONDO------- -->
+        <audio controls autoplay preload="auto" loop>
+            <source src="multimedia/fondoAudio.ogg" type="audio/ogg"/>
+            <source src="multimedia/fondoAudio.mp3" type="audio/mpeg"/>
+        </audio>
+        <!-- ------------------------------------------------------- -->
+        
         <div class="encabezado">
             <p>Bienvenido Sr Sacristan</p>
             <div id="menu">
@@ -14,7 +21,6 @@
                 <button>Contacto</button>
             </div>
             <div id="marca_logo"></div>
-
             <div class="tema">
                 <h1>DAW IT Consulting</h1>
                 <p1>A la vanguardia de la tecnología</p1>
@@ -50,6 +56,15 @@
                 <p class="persona2">Homer Simpson</p>
             </div>
         </div>
+       <!------------------------ VIDEOS --------------------------->
+        <div>
+            <video autoplay width="360" height="240">
+                <source src="videos/recetapollo.mp4" type="video/mp4">
+                <source src="videos/recetapollo.ogv" type="video/ogg">
+            </video>
+            <p>Video</p>
+       </div>
+       <!-- ----------------------------------------------------- -->
         <div class="pie">
             <h1 id="grande">Contacto</h1>
             <p>Gran via 84</br>Madrid</p>
