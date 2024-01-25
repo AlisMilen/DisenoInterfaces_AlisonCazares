@@ -6,20 +6,9 @@
         background-size: 100% 30vh;
     }
 
-    /* .encabezado
-{
-    width: 100%;
-    height: 40vh;
-    background-image: url('imagenes/prueba2.jpg');
-    object-fit: contain;
-    background-size: 100% 40vh;
-    background-repeat: no-repeat;
-} */
-
     .botones {
         width: 90%;
     }
-
     .botones button {
         font-size: 1rem;
     }
@@ -27,16 +16,13 @@
     .iconos {
         width: 70%;
     }
-
     .ima_icono1, .Icono2, .Icono3 {
         width: 10%;
     }
-
     #iconos {
         margin-left: 5%;
         width: 90%;
     }
-
     #iconos button {
         font-size: 1rem;
         margin: 1vh;
@@ -45,21 +31,16 @@
     .comentarios > div:first-child {
         width: 90%;
     }
-
     .comentarios div:nth-child(2) {
         width: 90%;
         margin-left: 5%;
     }
 
-    .Foto_coment1,
-    .Foto_coment2 {
+    .Foto_coment1, .Foto_coment2 {
         height: 8vh;
     }
 
-    .Coment1,
-    .Coment2,
-    .persona1,
-    .persona2 {
+    .Coment1, .Coment2, .persona1, .persona2 {
         font-size: 1rem;
     }
 
@@ -81,39 +62,34 @@
         font-size: 2rem;
     }
 
-    .pie h1,
-    .pie p {
+    .pie h1, .pie p {
         font-size: 1rem;
     }
 }
 
 /* ******************************************************************************* */
 /* **************************CÓDIGO PRINCIPAL************************************* */
-.encabezado
-{
+.encabezado{
     margin-top: 0;
-    border: 1px solid green;
+    /* border: 1px solid green; */
     width: 100%;
-    height: 40vh;
+    height: 50vh;
     background-image: url('imagenes/prueba2.jpg');
     object-fit: contain;
     background-size: 100% 40vh;
     background-repeat: no-repeat;
 }
 
-html, body
-{
+html, body{
     min-height: 100%;
     overflow-x: hidden;
 }
 
-body
-{
+body{
     margin: 0;
 }
 
-#menu
-{
+#menu{
     text-align: right;
 }
 
@@ -130,8 +106,7 @@ body
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#menu button:hover
-{
+#menu button:hover{
     font-weight: bold;
 }
 
@@ -142,7 +117,7 @@ body
     background-size: contain;
     background-repeat: no-repeat;
     height: 20vh;
-    width: 40%;
+    width: 10%;
     position: absolute;
     margin-left: 5vw;
 }
@@ -153,6 +128,22 @@ body
     color: white;
     font-family: "cursive";
 }
+/*************** PARTE ANIMACION *************** */
+.tema h1{
+    animation-name: titulo;
+    animation-duration: 3s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    transform: translateY(-50px);
+}
+@keyframes titulo
+{
+    to {
+        opacity: 1;
+        transform: translateY(0); 
+      }
+}
+/* ************** *************** *************** */
 
 .encabezado p
 {
@@ -163,7 +154,6 @@ body
     font-size: 1.5vw;
     font-family: Arial;
     left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 .tema p
@@ -212,6 +202,9 @@ body > p
     font-size: 2vw;
     margin-left: auto;
 }
+
+/* **************************AUDIO**************************************** */
+
 
 /* ****************************ICONOS IMAGENES**************************** */
 .iconos 
@@ -280,6 +273,12 @@ body > p
     margin-left: 0; /* Coloca el margen izquierdo a cero */
     margin-top: 4vh;
     margin-right: auto;
+    animation-name: comentario1;
+    animation-delay: 3s;
+    animation-duration: 3s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    transform: translateX(-100%);
 }
 
 .comentarios div:nth-child(2)
@@ -288,7 +287,31 @@ body > p
     margin-bottom: 2vh;
     width: 80%;
     margin-left: 10%;
+    animation-name: comentario2;
+    animation-delay: 3s;
+    animation-duration: 3s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    transform: translateX(100%);
 }
+
+/* ****************ANIMACIÓN*********** */
+@keyframes comentario1
+{
+    to {
+        opacity: 1;
+        transform: translateX(0); /* Sin desplazamiento horizontal al final de la animación */
+      }
+}
+@keyframes comentario2
+{
+    to {
+        opacity: 1;
+        transform: translateX(0); /* Sin desplazamiento horizontal al final de la animación */
+      }
+}
+
+/* ************************************ */
 
 /* ***********************COMENTARIO 1******************************* */
 .Foto_coment1
@@ -336,6 +359,39 @@ body > p
     text-align: right;
     margin-right: 0;
     margin-top: 0;
+}
+
+/* **************************************************************** */
+
+.videos
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#video1, #video2
+{
+    flex-grow: 1;
+    margin-top: 4vh;
+    padding: 1vh;
+}
+#video1
+{
+    width: 50%; /* Ocupa la mitad del ancho de la pantalla */
+    /* margin-right: 0%; */
+    /* margin-bottom: 0.5vh; */
+    margin-left: 5vh;
+}
+
+.video2
+{
+    width: 50%; /* Ocupa la mitad del ancho de la pantalla */
+    margin-bottom: 0.5vh;
+    margin-left: 5vh;
 }
 
 /* **********************PIE DE PÁGINA***************************** */
@@ -399,7 +455,7 @@ body > p
     #menu
     {
         float: right;
-        text-align: center;
+        text-align: right;
     }
     /* MENU */
     #menu button
@@ -482,7 +538,7 @@ body > p
 /* **************PIE***************** */
     .pie {
         height: 30vh;
-        background-size: 100% 20vh;
+        background-size: 100% 30vh;
     }
 
     #marca_logo2 {
@@ -511,20 +567,20 @@ body > p
 @media only screen and (min-width: 768px) and (max-width: 1024px)
 {
     .encabezado {
-        height: 30vh;
-        background-size: 100% 30vh;
+        height: 40vh;
+        background-size: 100% 40vh;
     }
 
     .botones {
-        width: 60%;
+        width: 50%;
     }
 
     .botones button {
-        font-size: 1.2rem;
+        font-size: 1em;
     }
 
     .iconos {
-        width: 50%;
+        width: 45%;
     }
     .ima_icono1, .Icono2, .Icono3 {
         width: 8%;
@@ -538,11 +594,6 @@ body > p
         margin: 1vh;
     }
 
-    /* Primer item de comentarios:
-    width: 60%
-    En código general: quitar margin-left y right
-    (Para situarlo en el medio)
-    */
     .comentarios > div:first-child {
         width: 80%;
     }
@@ -565,8 +616,8 @@ body > p
     }
 
     .pie {
-        height: 25vh;
-        background-size: 100% 25vh;
+        height: 40vh;
+        background-size: 100% 40vh;
     }
 
     #marca_logo2 {
