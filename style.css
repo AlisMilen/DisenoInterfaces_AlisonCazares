@@ -387,7 +387,7 @@ audio{
 /* ****************************************************************** */
 
 /**************** DISPOITIVOS MEDIANOS (768px - Tablets)***************/
-@media only screen and (min-width: 380px) and (max-width: 768px)
+@media only screen and (min-width: 450px) and (max-width: 768px)
 {
     .encabezado {
         height: 35vh;
