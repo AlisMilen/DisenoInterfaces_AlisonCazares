@@ -181,7 +181,24 @@ audio{
     margin-bottom: 0.5vh;
     margin-left: 2vh;
 }
-
+.ima_icono1:hover,.Icono2:hover,.Icono3:hover {
+    font-weight: bold;
+    animation-name: cambiaAspecto;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+@keyframes cambiaAspecto{
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 /* ************************TEXTO DE ICONOS************************** */
 #iconos
 {
@@ -348,6 +365,25 @@ audio{
     margin-top: 0;
 }
 
+.video-container {
+    position: relative;
+    width: 30%;
+    /* height: 50%; */
+    padding-bottom: 25%;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilos opcionales para el iframe del video */
+iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0; /* Elimina el borde del iframe */
+}
 /* **************************************************************** */
 /* **********************PIE DE PÁGINA***************************** */
 .pie {
