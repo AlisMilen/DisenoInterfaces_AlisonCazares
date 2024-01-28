@@ -1,4 +1,3 @@
-
 /* **************************CÓDIGO PRINCIPAL************************************* */
 .encabezado{
     margin-top: 0;
@@ -8,6 +7,8 @@
     object-fit: contain;
     background-size: 100% 40vh;
     background-repeat: no-repeat;
+    grid-column: 1 / -1; /* Ocupa todas las columnas */
+    color: #fff; /* Color del texto del encabezado */
 }
 
 html, body{
@@ -26,28 +27,20 @@ body{
     background-repeat: no-repeat;
     height: 20%;
     width: 20%;
-    /* margin-left: 5vw; */
 }
-
-#menu{
-    text-align: left;
-    margin-top: 1em;
-}
-
-#menu button
+/* ******************************************** */
+#menu_desplegable button
 {
     background-color: transparent;
     border: 0;
     color: white;
     display: block;
     padding: 0 2%;
-    margin-bottom: 1em;
-    margin-top: 0;
+    margin-top: 2vh;
     font-size: 0.8rem;
     font-family: Arial, Helvetica, sans-serif;
 }
-
-#menu button:hover{
+#menu_desplegable button:hover{
     font-weight: bold;
 }
 
@@ -93,17 +86,18 @@ body{
 {
     text-align: center;
     margin: auto;
-    /* top: 2vh; */
     font-size: 0.9rem;
     font-family: Arial;
-    /* left: 50%; */
+    padding: 1%;
 }
 
 .botones
 {
-    margin: auto;
+    /* margin: auto; */
+    margin-left: auto;
+    margin-right: auto;
     width: 70%;
-    padding: 1.5%;
+    /* padding: 1.5%; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -125,13 +119,15 @@ body{
     color: black;
 }
 
-body > p{
+.main{
+    grid-column: 2 / 3; /* Ocupa la segunda columna */
+  }
+.main>p{
     color: #80b1ed;
     text-align: center;
     font-size: 4vw;
     margin-left: auto;
 }
-
 /* **************************AUDIO**************************************** */
 audio{
     height: 30px;
@@ -140,7 +136,6 @@ audio{
     align-items: center;
     margin: 0 auto;
 }
-
 /* ****************************ICONOS IMAGENES**************************** */
 .iconos {
     width: 70%;
@@ -151,7 +146,6 @@ audio{
     margin-right: auto;
     
 }
-
 .ima_icono1,.Icono2,.Icono3{
     /* REVISAR ESPACIO ENTRE ICONOS(IMAGENES) */
     flex-grow: 1;
@@ -194,7 +188,6 @@ audio{
     flex-direction: column;
     align-items: center;
     text-align: center;
-    /* justify-content: space-between; */
     margin-left: auto;
     margin-right: auto;
 }
@@ -214,9 +207,6 @@ audio{
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* margin-right: 0%; */
-    /* margin-bottom: 0.5vh; */
-    /* margin-left: 5vh; */
 }
 
 #video2
@@ -321,8 +311,8 @@ audio{
     font-size: 2.5vw;
     color: black;
     font-family: Arial, Helvetica, sans-serif;
-    margin-left: 0;
-    text-align: right;
+    margin-left: 0%;
+    /* text-align: right; */
 }
 
 .persona2 {
@@ -342,6 +332,10 @@ audio{
     background-color: rgb(60, 60, 88);
     background-size: 100% 35vh;
     background-repeat: no-repeat;
+
+    grid-column: 1 / -1; /* Ocupa todas las columnas */
+    color: #fff; /* Color del texto del pie de página */
+    grid-template-columns: 1fr 1fr;
 }
 
 #marca_logo2
@@ -353,29 +347,25 @@ audio{
     height: 10vh;
     width: 15%;
     position: relative;
-    margin-left: 60%;
+    margin-left: 55%;
     margin-top: -20%;
 }
 
 .logoletra {
-    margin-top: -10%;
-    margin-left: 75%;
     font-size: 1.5vh;
 }
 
-.pie p {
+.pie p{
     width: 40%;
 }
 
-#grande {
-    color: white;
+#grande{
     margin-left: 10%;
     font-family: Arial;
     font-size: 1rem;
 }
 
 .pie h1, p {
-    color: white;
     margin-left: 10%;
     font-family: Arial;
     font-size: 2.5vw;
@@ -383,84 +373,88 @@ audio{
 }
 
 /* ****************************************************************** */
-
 /**************** DISPOITIVOS MEDIANOS (768px - Tablets)***************/
 @media only screen and (min-width: 450px) and (max-width: 768px)
 {
     .encabezado {
-        height: 35vh;
+        height: 40vh;
         background-size: 100% 40vh;
-        padding-top: 4%;
+        padding-top: 1%;
     }
-
-    #menu
-    {
-        float: right;
+    .encabezado p{
         text-align: right;
     }
+    #marca_logo{
+        background-image: url(imagenes/marca_logo5.png);
+        object-fit: contain;
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-left: 45%;
+    }
+    #menu_desplegable{
+        width: 20%;
+        margin-left: 1em;
+    }
     /* MENU */
-    #menu button
+    #menu_desplegable button
     {
         background-color: transparent;
         border: 0;
         color: white;
-        display: block;
-        padding: 1% 2%;
-        margin: 1em;
-        margin-top: 0;
-        font-size: 0.9rem;
+        /* display: block; */
+        padding: 2% 2%;
+        margin: 2%;
+        margin-top: 0%;
+        font-size: 1rem;
         font-family: Arial, Helvetica, sans-serif;
     }
-
-    #marca_logo
-    {
-        background-image: url('imagenes/sustituir.jpg');
-        object-fit: contain;
-        background-size: contain;
-        background-repeat: no-repeat;
-        height: 10vh;
-        width: 40%;
-        position: absolute;
-        margin-left: 5vw;
+    .tema{
+        top: 20%;
     }
-    
-    .botones {
+    .botones{
         width: 60%;
+        margin-top: 0rem;
+        margin-bottom: 10px;
     }
-
     .botones button {
         font-size: 1rem;
     }
-
     .iconos {
-        width: 45%;
+        width: 55%;
     }
-
-    .ima_icono1, .Icono2, .Icono3 {
-        width: 15%;
-    }
-
     #iconos {
-        margin-left: 15%;
-        width: 69%;
+        width: 100%;
+    }
+    #iconos button {
+        font-size: 2.5vw;
+    }
+    .video{
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        margin: auto;
+    }
+    #video1,#video2{
+        width: 50%;
+        margin: 1vh;
+        margin-left: 0vh;
     }
 
-    #iconos button {
-        font-size: 1.8vw;
-        margin: 1vh;
+    /* ***********COMENTARIOS************** */
+    .comentarios{
+        padding: 3vh;
+        padding-top: 0vh;
     }
-    
-/* ***********COMENTARIOS************** */
     .comentarios > div:first-child {
-        width: 50%;
-        margin-left: auto;
+        margin-left: 0; /* Coloca el margen izquierdo a cero */
+        margin-top: 4vh;
         margin-right: auto;
     }
 
     .comentarios div:nth-child(2) {
+        margin-bottom: 2vh;
         width: 50%;
-        margin-left: 10%;
-        margin-right: 30%;
+        margin-right: 0;
     }
 
     .Foto_coment1, .Foto_coment2 {
@@ -474,14 +468,18 @@ audio{
     {
         /* CENTRAR TEXTO DE COMENTARIO */
         text-align: center;
-        margin-left: 20%;
     }
 /* **************PIE***************** */
     .pie {
-        height: 30vh;
+        height: 25vh;
         background-size: 100% 30vh;
     }
-
+    .item2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
     #marca_logo2 {
         height: 12vh;
         margin-top: -16vh;
@@ -508,74 +506,134 @@ audio{
 @media only screen and (min-width: 768px) and (max-width: 1024px)
 {
     .encabezado {
-        height: 40vh;
-        background-size: 100% 40vh;
+        height: 50vh;
+        background-size: 100% 50vh;
+        padding-top: 1%;
     }
-
-    .botones {
+    .encabezado p{
+        text-align: center;
+    }
+    .tema{
+        font-size: 4vh;
+    }
+    #marca_logo{
+        background-image: url(imagenes/marca_logo5.png);
+        object-fit: contain;
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-left: 45%;
+    }
+    #menu_desplegable{
+        width: 20%;
+        margin-left: 1em;
+    }
+    /* MENU */
+    #menu_desplegable button
+    {
+        background-color: transparent;
+        border: 0;
+        color: white;
+        /* display: block; */
+        padding: 2% 2%;
+        margin: 2%;
+        margin-top: 0%;
+        font-size: 1.3rem;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .tema{
+        top: 25%;
+    }
+    .botones{
+        width: 70%;
+        height: 20%;
+        margin-top: 0rem;
+        margin-bottom: 10px;
+    }
+    .botones button {
+        font-size: 1.5rem;
+        
+    }
+    .iconos {
         width: 50%;
     }
-
-    .botones button {
-        font-size: 1em;
-    }
-
-    .iconos {
-        width: 45%;
-    }
-    .ima_icono1, .Icono2, .Icono3 {
-        width: 8%;
-    }
     #iconos {
-        margin-left: 10%;
-        width: 80%;
+        width: 100%;
     }
     #iconos button {
-        font-size: 1.2rem;
+        font-size: 2vw;
+    }
+    .video{
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        margin: auto;
+    }
+    #video1,#video2{
+        width: 50%;
         margin: 1vh;
+        margin-left: 0vh;
     }
 
+    /* ***********COMENTARIOS************** */
+    .comentarios{
+        padding: 3vh;
+        padding-top: 0vh;
+        display: flex;
+        justify-content: space-between;
+        margin: auto;
+    }
+    
     .comentarios > div:first-child {
-        width: 80%;
+        margin-left: 0; /* Coloca el margen izquierdo a cero */
+        margin-top: 4vh;
+        margin-right: auto;
     }
 
     .comentarios div:nth-child(2) {
-        width: 80%;
-        margin-left: 10%;
+        margin-bottom: 2vh;
+        width: 50%;
+        margin-right: 0;
     }
 
-    .Foto_coment1,
-    .Foto_coment2 {
-        height: 10vh;
+    .Foto_coment1, .Foto_coment2 {
+        height: 12vh;
     }
 
-    .Coment1,
-    .Coment2,
-    .persona1,
-    .persona2 {
-        font-size: 1.2rem;
+    .Coment1, .Coment2, .persona1, .persona2 {
+        font-size: 1rem;
     }
-
+    .Coment2
+    {
+        /* CENTRAR TEXTO DE COMENTARIO */
+        text-align: center;
+    }
+/* **************PIE***************** */
     .pie {
-        height: 40vh;
-        background-size: 100% 40vh;
+        height: 25vh;
+        background-size: 100% 30vh;
     }
-
+    .item2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
     #marca_logo2 {
         height: 12vh;
         margin-top: -16vh;
+        margin-left: 57%;
     }
 
     .logoletra {
         margin-top: -12vh;
+        margin-left: 70%;
     }
 
     #grande {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
-    .pie h1,
-    .pie p {
-        font-size: 1.2rem;
+    .pie h1, .pie p {
+        font-size: 1rem;
     }
 }
