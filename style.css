@@ -7,10 +7,25 @@
     object-fit: contain;
     background-size: 100% 40vh;
     background-repeat: no-repeat;
-    grid-column: 1 / -1; /* Ocupa todas las columnas */
-    color: #fff; /* Color del texto del encabezado */
+    grid-column: 1 / -1;
+    color: #fff;
+    animation-name: abrirEncabezado;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
 }
 
+@keyframes abrirEncabezado {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 html, body{
     min-height: 100%;
     overflow-x: hidden;
@@ -42,15 +57,32 @@ body{
 }
 #menu_desplegable button:hover{
     font-weight: bold;
+    animation-name: cambiaColor;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
 }
-
+@keyframes cambiaColor{
+    0% {
+        background-color: transparent;
+        color: white;
+    }
+    50% {
+        background-color: #60b0c6; /* Nuevo color al 50% de la animación */
+        color: black;
+    }
+    100% {
+        background-color: transparent;
+        color: white;
+    }
+}
 .tema
 {
     text-align: center;
     color: white;
     font-family: "cursive";
     position: absolute;
-    top: 15%;
+    top: 20%;
     left: 50%; 
     transform: translate(-50%, -50%);
     width: 70%;
@@ -61,8 +93,7 @@ body{
     text-align: center;
 }
 .tema h1
-{
-    margin-top: 0.5vh;
+{    margin-top: 0.5vh;
     font-size: 1.1rem;
     text-align: center;
 }
@@ -93,11 +124,9 @@ body{
 
 .botones
 {
-    /* margin: auto; */
     margin-left: auto;
     margin-right: auto;
     width: 70%;
-    /* padding: 1.5%; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -105,7 +134,7 @@ body{
 
 .botones button
 {
-    background-color: transparent;
+    background-color: rgb(152, 134, 111);
     border-color: white;
     color: white;
     border-radius: 5px;
@@ -120,7 +149,7 @@ body{
 }
 
 .main{
-    grid-column: 2 / 3; /* Ocupa la segunda columna */
+    grid-column: 2 / 3;
   }
 .main>p{
     color: #80b1ed;
@@ -147,17 +176,32 @@ audio{
     
 }
 .ima_icono1,.Icono2,.Icono3{
-    /* REVISAR ESPACIO ENTRE ICONOS(IMAGENES) */
     flex-grow: 1;
     width: 5%;
     margin-bottom: 0.5vh;
     margin-left: 2vh;
 }
-
+.ima_icono1:hover,.Icono2:hover,.Icono3:hover {
+    font-weight: bold;
+    animation-name: cambiaAspecto;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+@keyframes cambiaAspecto{
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 /* ************************TEXTO DE ICONOS************************** */
 #iconos
 {
-    /* margin-left: 10%; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -197,7 +241,6 @@ audio{
     width: 50%;
     height: 50%;
     flex-grow: 1;
-    /* margin-top: 4vh; */
     margin-left: auto;
     margin-right: auto;
     padding: 1vh;
@@ -312,7 +355,6 @@ audio{
     color: black;
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 0%;
-    /* text-align: right; */
 }
 
 .persona2 {
@@ -323,6 +365,25 @@ audio{
     margin-top: 0;
 }
 
+.video-container {
+    position: relative;
+    width: 30%;
+    /* height: 50%; */
+    padding-bottom: 25%;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilos opcionales para el iframe del video */
+iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0; /* Elimina el borde del iframe */
+}
 /* **************************************************************** */
 /* **********************PIE DE PÁGINA***************************** */
 .pie {
@@ -353,6 +414,7 @@ audio{
 
 .logoletra {
     font-size: 1.5vh;
+    margin-left: 50%;
 }
 
 .pie p{
@@ -369,7 +431,7 @@ audio{
     margin-left: 10%;
     font-family: Arial;
     font-size: 2.5vw;
-    margin-top: 2.5vh;
+    margin-top: 2vh;
 }
 
 /* ****************************************************************** */
@@ -401,7 +463,6 @@ audio{
         background-color: transparent;
         border: 0;
         color: white;
-        /* display: block; */
         padding: 2% 2%;
         margin: 2%;
         margin-top: 0%;
@@ -409,7 +470,7 @@ audio{
         font-family: Arial, Helvetica, sans-serif;
     }
     .tema{
-        top: 20%;
+        top: 40%;
     }
     .botones{
         width: 60%;
@@ -418,6 +479,7 @@ audio{
     }
     .botones button {
         font-size: 1rem;
+        background-color: rgb(71, 138, 126);
     }
     .iconos {
         width: 55%;
@@ -444,6 +506,7 @@ audio{
     .comentarios{
         padding: 3vh;
         padding-top: 0vh;
+        display: inline;
     }
     .comentarios > div:first-child {
         margin-left: 0; /* Coloca el margen izquierdo a cero */
@@ -466,7 +529,6 @@ audio{
     }
     .Coment2
     {
-        /* CENTRAR TEXTO DE COMENTARIO */
         text-align: center;
     }
 /* **************PIE***************** */
@@ -487,7 +549,6 @@ audio{
     }
 
     .logoletra {
-        margin-top: -12vh;
         margin-left: 70%;
     }
 
@@ -500,20 +561,19 @@ audio{
     }
 }
 
-
-
 /* ********************DISPOSITIVOS GRANDES(1024PX)************************ */
-@media only screen and (min-width: 768px) and (max-width: 1024px)
+@media only screen and (min-width: 768px)
 {
     .encabezado {
-        height: 50vh;
-        background-size: 100% 50vh;
+        height: 60vh;
+        background-size: 100% 60vh;
         padding-top: 1%;
     }
     .encabezado p{
         text-align: center;
     }
     .tema{
+        margin-top: 10vh;
         font-size: 4vh;
     }
     #marca_logo{
@@ -521,7 +581,7 @@ audio{
         object-fit: contain;
         background-size: contain;
         background-repeat: no-repeat;
-        margin-left: 45%;
+        margin-left: 47%;
     }
     #menu_desplegable{
         width: 20%;
@@ -533,11 +593,10 @@ audio{
         background-color: transparent;
         border: 0;
         color: white;
-        /* display: block; */
         padding: 2% 2%;
         margin: 2%;
         margin-top: 0%;
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         font-family: Arial, Helvetica, sans-serif;
     }
     .tema{
@@ -552,6 +611,9 @@ audio{
     .botones button {
         font-size: 1.5rem;
         
+    }
+    .main>p{
+        font-size: 3.5vh;
     }
     .iconos {
         width: 50%;
@@ -579,18 +641,15 @@ audio{
         padding: 3vh;
         padding-top: 0vh;
         display: flex;
-        justify-content: space-between;
-        margin: auto;
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
     }
-    
     .comentarios > div:first-child {
         margin-left: 0; /* Coloca el margen izquierdo a cero */
-        margin-top: 4vh;
-        margin-right: auto;
     }
 
     .comentarios div:nth-child(2) {
-        margin-bottom: 2vh;
         width: 50%;
         margin-right: 0;
     }
@@ -609,8 +668,10 @@ audio{
     }
 /* **************PIE***************** */
     .pie {
-        height: 25vh;
-        background-size: 100% 30vh;
+        height: 35vh;
+        background-size: 100% 35vh;
+        background-color: rgb(80, 79, 79);
+        min-height: 20%;
     }
     .item2{
         display: flex;
@@ -620,12 +681,11 @@ audio{
     }
     #marca_logo2 {
         height: 12vh;
-        margin-top: -16vh;
+        margin-top: -10vh;
         margin-left: 57%;
     }
 
     .logoletra {
-        margin-top: -12vh;
         margin-left: 70%;
     }
 
