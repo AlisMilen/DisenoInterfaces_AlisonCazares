@@ -1,0 +1,34 @@
+.grid_ini
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 2fr;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 5%;
+    width: 35%;
+	height: 400px;
+}
+.inicio
+{    width: 100%;
+	height: 60vh;
+    grid-row: 1/ span 1;
+    border: 1px solid black;
+    background-image: url(imagenes/indice_play.jpg);
+    background-size: 100% 60vh;
+    object-fit: contain;
+    background-repeat: no-repeat;
+
+}
+
+#play
+{
+    background-color: gray;
+    /* font-family: sans-serif; */
+    font-family: monospace;
+    font-size: 1.5em;
+    width: 100%;
+    height: 60px;
+    grid-row: 2/ span 1;
+}

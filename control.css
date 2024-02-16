@@ -1,0 +1,33 @@
+.grid
+{
+    width: 100%;
+    height: 500px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+#disparador {
+    width: 40%;
+    height: 15vh;
+    background-image: url(imagenes/nave_espacial.png);
+    background-size: 40% 20vh;
+    object-fit: contain;
+    background-repeat: no-repeat;
+}
+#marciano
+{
+    width: 40%;
+    height: 15vh;
+    background-image: url(imagenes/marciano.png);
+    background-size: 40% 15svh;
+    object-fit: contain;
+    background-repeat: no-repeat;
+}
+#disparador
+{
+    grid-row: 2/span 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
