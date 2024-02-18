@@ -1,44 +1,89 @@
 //////////////////////// NAVES//////////////////////////////
 document.addEventListener('DOMContentLoaded', function() {
-    const navesContainer = document.getElementById('naves');
+    const marciano = document.getElementById('marciano');
 
-    for (let i = 0; i < 5; i++)
-    {
-        const nave = document.createElement('div');
-        nave.classList.add('nave');
-        navesContainer.appendChild(nave);
-    }
-
-    const naves = document.querySelectorAll('.nave');
-
-    let posicionNaves = 0;
+    let posicionMarciano = 0;
     let direccion = 1; // 1 para mover a la derecha, -1 para mover a la izquierda
 
-    // Función para mover las naves de izquierda a derecha y viceversa
-    function moverNaves() {
-        // Incrementa o decrementa la posición de las naves según la dirección
-        posicionNaves += 10 * direccion;
+    function moverMarciano() {
+        // Incrementa o decrementa la posición del marciano según la dirección
+        posicionMarciano += 10 * direccion;
 
-        // Si llega al borde derecho de la pantalla, cambia la dirección a izquierda
-        // Si llega al borde izquierdo de la pantalla, cambia la dirección a derecha
-        if (posicionNaves >= window.innerWidth || posicionNaves <= 0) {
+        // Si el marciano llega al borde derecho del grid, cambia la dirección a izquierda
+        // Si el marciano llega al borde izquierdo del grid, cambia la dirección a derecha
+        if (posicionMarciano >= (document.querySelector('.grid').offsetWidth - marciano.offsetWidth) || posicionMarciano <= 0)
+        {
             direccion *= -1;
         }
 
-        // Recorre todas las naves y actualiza sus estilos para moverlas
-        naves.forEach(nave => {
-            marciano.style.left = `${posicionNaves}px`;
-        });
+        // Actualiza la posición horizontal del marciano
+        marciano.style.left = `${posicionMarciano}px`;
     }
 
-    // Espera 3 segundos y luego inicia el movimiento de las naves
+    // Espera 3 segundos y luego inicia el movimiento del marciano
     setTimeout(function() {
-        setInterval(moverNaves, 50); // Mueve las naves cada 50 milisegundos
-    }, 3000);
+        setInterval(moverMarciano, 50); // Mueve el marciano cada 50 milisegundos
+    }, 2000);
+});
+
+//////////////////////// FIN NAVES//////////////////////////////
+
+// ///////////////////BALAS///////////////////////////////////
+document.addEventListener('DOMContentLoaded', function()
+{
+    const marciano = document.getElementById('marciano');
+    const disparador = document.getElementById('disparador');
+    const balas = document.getElementById('balas');
+
+    let disparadorPosY = parseInt(window.getComputedStyle(disparador).top);
+    let balasPosY = parseInt(window.getComputedStyle(balas).top);
+    let intervalID;
+
+    function arriba() {
+        balasPosY -= 10;
+        balas.style.top = balasPosY + 'px';
+        colision();
+        limite();
+    }
+
+    function colision() {
+        const marcianoRect = marciano.getBoundingClientRect();
+        const balasRect = balas.getBoundingClientRect();
+
+        if (balasRect.bottom >= marcianoRect.top && balasRect.left >= marcianoRect.left && balasRect.right <= marcianoRect.right)
+        {
+            //SI TOCA, SE OCULTA LA BALA Y EL MARCIANO
+            balas.style.visibility = 'hidden';
+            marciano.style.visibility = 'hidden';
+            clearInterval(intervalID);
+        }
+    }
+
+    function limite()
+    {
+        if (balasPosY <= 0)
+        {
+            // SI TOCA EL BORDE SUPERIOR, TAMBIEN SE OCULTA
+            balas.style.visibility = 'hidden';
+            clearInterval(intervalID);
+        }
+    }
+
+    document.addEventListener('keydown', function(event) {
+        if (event.code === 'Space')
+        {
+            // Iniciar movimiento hacia arriba cuando se presiona la tecla de espacio
+            balas.style.visibility = 'visible';
+            balasPosY = parseInt(window.getComputedStyle(disparador).top);
+            balas.style.left = disparador.offsetLeft + 'px';
+            balas.style.top = balasPosY + 'px';
+            intervalID = setInterval(arriba, 50);
+        }
+    });
 });
 
 
-//////////////////////// FIN NAVES//////////////////////////////
+// ///////////////////FIN - BALAS///////////////////////////////////
 
 /////////////////// DISPARADOR//////////////////////////////
 const disparador = document.getElementById('disparador');

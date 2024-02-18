@@ -1,26 +1,48 @@
+body
+{
+    /* background-color: gray; */
+    background-image: url(imagenes/fondo.jpg);
+    background-size: 100% 100%;
+    object-fit: contain;
+    background-repeat: no-repeat;
+}
+h1
+{
+    font-family: monospace;
+    color: rgb(147, 231, 29);
+    font-style: italic;
+    font-size: 4em;
+    text-align: center;
+    text-decoration: overline;
+    /* text-decoration: underline; */
+}
 .grid
 {
-    width: 100%;
-    height: 500px;
+    width: 70%;
+    height: 450px;
     position: relative;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-}
-#disparador {
-    width: 40%;
-    height: 15vh;
-    background-image: url(imagenes/nave_espacial.png);
-    background-size: 40% 20vh;
-    object-fit: contain;
-    background-repeat: no-repeat;
+    border: 1px solid white;
+    margin: 0 auto;
 }
 #marciano
 {
+    width: 25%;
+    height: 12vh;
+    background-image: url(imagenes/marciano.png);
+    background-size: 25% 12vh;
+    object-fit: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+#disparador
+{
     width: 40%;
     height: 15vh;
-    background-image: url(imagenes/marciano.png);
-    background-size: 40% 15svh;
+    background-image: url(imagenes/nave_espacial.png);
+    background-size: 40% 15vh;
     object-fit: contain;
     background-repeat: no-repeat;
 }
@@ -30,4 +52,11 @@
     position: absolute;
     bottom: 0;
     left: 0;
+}
+#balas {
+    position: absolute;
+    visibility: hidden; 
+    color: yellow;
+    /* Inicialmente oculto */
+    /* Otros estilos... */
 }
