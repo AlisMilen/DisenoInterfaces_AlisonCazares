@@ -1,68 +1,64 @@
-//////////////////////// NAVES//////////////////////////////
+//////////////////////// MARCIANO//////////////////////////////
 document.addEventListener('DOMContentLoaded', function() {
-    const marciano = document.getElementById('marciano');
-
-    let posicionMarciano = 0;
-    let direccion = 1; // 1 para mover a la derecha, -1 para mover a la izquierda
+    const marcianos = document.querySelectorAll('.marciano');
+    let direccion = 1; //1 para mover a la derecha
 
     function moverMarciano() {
-        // Incrementa o decrementa la posición del marciano según la dirección
-        posicionMarciano += 10 * direccion;
-
-        // Si el marciano llega al borde derecho del grid, cambia la dirección a izquierda
-        // Si el marciano llega al borde izquierdo del grid, cambia la dirección a derecha
-        if (posicionMarciano >= (document.querySelector('.grid').offsetWidth - marciano.offsetWidth) || posicionMarciano <= 0)
-        {
-            direccion *= -1;
-        }
-
-        // Actualiza la posición horizontal del marciano
-        marciano.style.left = `${posicionMarciano}px`;
+        marcianos.forEach(function(marciano) {
+            let posicionMarciano = parseInt(marciano.style.left) || 0;
+            let nuevaPosicion = posicionMarciano + (10 * direccion);
+            
+            // Verifica si la nueva posición está dentro de los límites del grid
+            if (nuevaPosicion >= 0 && nuevaPosicion <= (document.querySelector('.grid').offsetWidth - marciano.offsetWidth)) {
+                marciano.style.left = nuevaPosicion + 'px';
+            } else {
+                // Cambia la dirección si el marciano alcanza los límites del grid
+                direccion *= -1;
+            }
+        });
     }
 
-    // Espera 3 segundos y luego inicia el movimiento del marciano
     setTimeout(function() {
-        setInterval(moverMarciano, 50); // Mueve el marciano cada 50 milisegundos
+        setInterval(moverMarciano, 100); // Mueve el marciano cada 100 milisegundos
     }, 2000);
 });
 
-//////////////////////// FIN NAVES//////////////////////////////
+
+
+//////////////////////// FIN MARCIANO//////////////////////////////
 
 // ///////////////////BALAS///////////////////////////////////
-document.addEventListener('DOMContentLoaded', function()
-{
-    const marciano = document.getElementById('marciano');
+document.addEventListener('DOMContentLoaded', function() {
+    const marcianos = document.querySelectorAll('.marciano');
     const disparador = document.getElementById('disparador');
     const balas = document.getElementById('balas');
-
-    let disparadorPosY = parseInt(window.getComputedStyle(disparador).top);
-    let balasPosY = parseInt(window.getComputedStyle(balas).top);
     let intervalID;
 
     function arriba() {
-        balasPosY -= 10;
-        balas.style.top = balasPosY + 'px';
+        let balasPosY = parseInt(window.getComputedStyle(balas).top); // Obtener la posición Y de las balas
+        balasPosY -= 10; // Mover hacia arriba
+        balas.style.top = balasPosY + 'px'; //nueva posición
         colision();
         limite();
     }
 
     function colision() {
-        const marcianoRect = marciano.getBoundingClientRect();
-        const balasRect = balas.getBoundingClientRect();
+        marcianos.forEach(function(marciano) {
+            const marcianoRect = marciano.getBoundingClientRect();
+            const balasRect = balas.getBoundingClientRect();
 
-        if (balasRect.bottom >= marcianoRect.top && balasRect.left >= marcianoRect.left && balasRect.right <= marcianoRect.right)
-        {
-            //SI TOCA, SE OCULTA LA BALA Y EL MARCIANO
-            balas.style.visibility = 'hidden';
-            marciano.style.visibility = 'hidden';
-            clearInterval(intervalID);
-        }
+            if (balasRect.bottom >= marcianoRect.top && balasRect.left >= marcianoRect.left && balasRect.right <= marcianoRect.right) {
+                //SI TOCA, SE OCULTA LA BALA Y EL MARCIANO
+                balas.style.visibility = 'hidden';
+                marciano.style.visibility = 'hidden';
+                clearInterval(intervalID);
+            }
+        });
     }
 
-    function limite()
-    {
-        if (balasPosY <= 0)
-        {
+    function limite() {
+        let balasPosY = parseInt(window.getComputedStyle(balas).top); // Obtener la posición Y de las balas
+        if (balasPosY <= 0) {
             // SI TOCA EL BORDE SUPERIOR, TAMBIEN SE OCULTA
             balas.style.visibility = 'hidden';
             clearInterval(intervalID);
@@ -70,18 +66,16 @@ document.addEventListener('DOMContentLoaded', function()
     }
 
     document.addEventListener('keydown', function(event) {
-        if (event.code === 'Space')
-        {
-            // Iniciar movimiento hacia arriba cuando se presiona la tecla de espacio
+        if (event.code === 'Space') {
+            // INICIA EL MOVIMIENTO HACIA ARRIBA SI SE PRESIONA EL ESPACIO
             balas.style.visibility = 'visible';
-            balasPosY = parseInt(window.getComputedStyle(disparador).top);
+            let balasPosY = parseInt(window.getComputedStyle(disparador).top); // Obtener la posición Y del disparador
             balas.style.left = disparador.offsetLeft + 'px';
             balas.style.top = balasPosY + 'px';
             intervalID = setInterval(arriba, 50);
         }
     });
 });
-
 
 // ///////////////////FIN - BALAS///////////////////////////////////
 
@@ -112,7 +106,7 @@ document.addEventListener('keydown', function(event)
         const gridWidth = parseFloat(window.getComputedStyle(gridElement).width);
         
         // Calculamos el ancho ocupado por el disparador en porcentaje
-        const disparadorWidthPercentage = 40; // Por ejemplo, supongamos que ocupa el 40%
+        const disparadorWidthPercentage = 20;
         const disparadorWidth = (disparadorWidthPercentage / 100) * gridWidth;
         
         if (posicionDisparador + step > gridWidth - disparadorWidth)

@@ -18,7 +18,7 @@ h1
 }
 .grid
 {
-    width: 70%;
+    width: 75%;
     height: 450px;
     position: relative;
     display: grid;
@@ -27,36 +27,47 @@ h1
     border: 1px solid white;
     margin: 0 auto;
 }
-#marciano
-{
-    width: 25%;
-    height: 12vh;
+.movimiento {
+    display: flex; /*alinear los marcianos en una fila*/
+    justify-content: flex-start; /* Alinear los elementos al principio del contenedor */
+    align-items: center; /* Centrar verticalmente los elementos */
+}
+
+.marciano {
+    width: 5%;
+    height: 5vh;
     background-image: url(imagenes/marciano.png);
-    background-size: 25% 12vh;
+    background-size: contain;
+    background-position: center;
     object-fit: contain;
     background-repeat: no-repeat;
-    position: absolute;
+    margin: 0; 
+    padding: 0;
+    position: relative;
 }
 #disparador
 {
-    width: 40%;
+    width: 20%;
     height: 15vh;
-    background-image: url(imagenes/nave_espacial.png);
-    background-size: 40% 15vh;
+    background-image: url(imagenes/nave.png);
+    /* background-size: 40% 15vh; */
+    background-size: contain;
+    background-position: center;
     object-fit: contain;
     background-repeat: no-repeat;
+    /* position: absolute; */
+    margin: 1em;
 }
 #disparador
 {
     grid-row: 2/span 1;
     position: absolute;
     bottom: 0;
-    left: 0;
 }
 #balas {
     position: absolute;
+    background-color: yellowgreen;
     visibility: hidden; 
     color: yellow;
-    /* Inicialmente oculto */
-    /* Otros estilos... */
+
 }
