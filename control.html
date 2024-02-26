@@ -4,16 +4,26 @@
     <meta charset="UTF-8">
     <title>Mi Juego</title>
     <link rel="stylesheet" href="control.css">
+    <!-- <link rel="stylesheet" href="contadorDisparos.css"> -->
 </head>
 <body>
     <h1>SPACE INVADERS</h1>
+    <div>
+        <!-- <button id="pausa">PAUSAR</button> -->
+    </div>
+    <!-- Contenido del contador de disparos -->
+    <div id="contadorDisparos">
+        <h2>Contador de Disparos</h2>
+        <p>Disparos: <span id="contador">0</span></p>
+    </div>
+
     <div class="grid">
         <div class="movimiento">
+            <div class="marciano" id="primero"></div>
             <div class="marciano"></div>
             <div class="marciano"></div>
             <div class="marciano"></div>
-            <div class="marciano"></div>
-            <div class="marciano"></div>
+            <div class="marciano" id="ultimo"></div>
         </div>
         <div id="balas">|</div>
 
@@ -21,5 +31,6 @@
         </div>
     </div>
     <script src="elJuego.js"></script>
+    <script src="contadorDisparos.js"></script>
 </body>
 </html>

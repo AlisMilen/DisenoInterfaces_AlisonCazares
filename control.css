@@ -16,6 +16,26 @@ h1
     text-decoration: overline;
     /* text-decoration: underline; */
 }
+#pausa
+{
+    background-color: gray;
+
+}
+/* Estilos del contador de disparos */
+#contadorDisparos
+{
+    
+    margin-top: 20px;
+    color: aliceblue;
+}
+
+#contador
+{
+    font-size: 24px;
+    margin: 0 10px;
+    color: aliceblues;
+}
+
 .grid
 {
     width: 75%;
@@ -24,15 +44,15 @@ h1
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    border: 1px solid white;
+    border: 1px dotted white;
     margin: 0 auto;
 }
-.movimiento {
+.movimiento
+{
     display: flex; /*alinear los marcianos en una fila*/
     justify-content: flex-start; /* Alinear los elementos al principio del contenedor */
     align-items: center; /* Centrar verticalmente los elementos */
 }
-
 .marciano {
     width: 5%;
     height: 5vh;
@@ -69,5 +89,7 @@ h1
     background-color: yellowgreen;
     visibility: hidden; 
     color: yellow;
-
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: 40px;
 }

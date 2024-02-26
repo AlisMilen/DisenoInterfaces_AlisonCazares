@@ -1,31 +1,86 @@
 //////////////////////// MARCIANO//////////////////////////////
 document.addEventListener('DOMContentLoaded', function() {
     const marcianos = document.querySelectorAll('.marciano');
-    let direccion = 1; //1 para mover a la derecha
+    let direccion = 1; // 1 para mover a la derecha
 
     function moverMarciano() {
+        // Obtenemos el margen izquierdo del primer marciano y el margen derecho del último marciano
+        const primerMarciano = marcianos[0];
+        const ultimoMarciano = marcianos[marcianos.length - 1];
+        const margenIzquierdo = parseInt(window.getComputedStyle(primerMarciano).left) || 0;
+        // OFFSETWIDTH: DEVUELVE EL ANCHO TOTAL DE UN ELEMENTO
+        const margenDerecho = parseInt(window.getComputedStyle(ultimoMarciano).left) + ultimoMarciano.offsetWidth || 0;
+
+        // Calculamos los límites del contenedor del grid
+        const limiteIzquierdo = 0;
+        const limiteDerecho = document.querySelector('.grid').offsetWidth - primerMarciano.offsetWidth;
+
+        // Verificamos si los marcianos alcanzan los límites del contenedor
+        if (direccion === 1 && margenDerecho >= limiteDerecho) {
+            // Si alcanzan el límite derecho, cambiamos la dirección a -1 para mover a la izquierda
+            direccion = -1;
+        } else if (direccion === -1 && margenIzquierdo <= limiteIzquierdo) {
+            // Si alcanzan el límite izquierdo, cambiamos la dirección a 1 para mover a la derecha
+            direccion = 1;
+        }
+
+        // Movemos todos los marcianos en la dirección actual
         marcianos.forEach(function(marciano) {
             let posicionMarciano = parseInt(marciano.style.left) || 0;
             let nuevaPosicion = posicionMarciano + (10 * direccion);
             
-            // Verifica si la nueva posición está dentro de los límites del grid
-            if (nuevaPosicion >= 0 && nuevaPosicion <= (document.querySelector('.grid').offsetWidth - marciano.offsetWidth)) {
-                marciano.style.left = nuevaPosicion + 'px';
-            } else {
-                // Cambia la dirección si el marciano alcanza los límites del grid
-                direccion *= -1;
-            }
+            // Ajustamos la posición para mantener al marciano dentro de los límites del contenedor
+            nuevaPosicion = Math.min(Math.max(nuevaPosicion, limiteIzquierdo), limiteDerecho);
+            
+            marciano.style.left = nuevaPosicion + 'px';
         });
     }
 
+    // Iniciamos el movimiento de los marcianos
     setTimeout(function() {
-        setInterval(moverMarciano, 100); // Mueve el marciano cada 100 milisegundos
+        setInterval(moverMarciano, 50); // Mueve los marcianos cada 80 milisegundos
     }, 2000);
 });
 
-
+// const intervalIDMarcianos = setInterval(moverMarciano, 80); // Mueve los marcianos cada 80 milisegundos
 
 //////////////////////// FIN MARCIANO//////////////////////////////
+
+// ////////////////////FUNCIONALIDAD////////////////////////////////////
+function decirGanador() {
+    return new Promise((resolve, reject) => {
+        const marcianos = document.querySelectorAll('.marciano');
+        let marcianosOcultos = 0;
+
+        marcianos.forEach(marciano => {
+            if (marciano.style.visibility === 'hidden') {
+                marcianosOcultos++;
+            }
+        });
+
+        if (marcianosOcultos === marcianos.length) {
+            resolve("¡Has ganado!");
+        } else {
+            const tiempoPerdida = 10000; // 30 segundos
+            setTimeout(() => {
+                marcianos.forEach(marciano => {
+                    if (marciano.style.visibility !== 'hidden') {
+                        marciano.style.visibility = 'hidden'; // Ocultar los marcianos restantes
+                    }
+                });
+                reject("¡Has perdido! Los marcianos te han invadido.");
+            }, tiempoPerdida);
+        }
+    });
+}
+
+// Llamar a la función para verificar la victoria o la pérdida
+decirGanador()
+    .then(message => alert(message))
+    .catch(error => alert(error));
+
+
+// ////////////////////FIN - FUNCIONALIDAD////////////////////////////////////
 
 // ///////////////////BALAS///////////////////////////////////
 document.addEventListener('DOMContentLoaded', function() {
@@ -49,9 +104,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (balasRect.bottom >= marcianoRect.top && balasRect.left >= marcianoRect.left && balasRect.right <= marcianoRect.right) {
                 //SI TOCA, SE OCULTA LA BALA Y EL MARCIANO
+                // MODIFICAR A EN VEZ DE OCULTAR, ELIMINAR EL DIV
+                const marcianoImpactadoEvent = new Event('marcianoImpactado');
+                marciano.dispatchEvent(marcianoImpactadoEvent);
                 balas.style.visibility = 'hidden';
                 marciano.style.visibility = 'hidden';
+                // marciano.remove();
                 clearInterval(intervalID);
+                decirGanador()
+                .then(message => alert(message))
+                .catch(error => alert(error));
             }
         });
     }
@@ -78,6 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ///////////////////FIN - BALAS///////////////////////////////////
+
 
 /////////////////// DISPARADOR//////////////////////////////
 const disparador = document.getElementById('disparador');
