@@ -4,7 +4,7 @@ let disparos = 202;
 const width = 15;
 const marBorrar = [];
 let marcianosId;
-let isGoingRight = true;
+let movDrch = true;
 let direccion = 1;
 let finResultado = 0;
 
@@ -60,7 +60,21 @@ function disparador(e) {
 document.addEventListener("keydown", disparador);
 
 // Función para verificar si el juego ha terminado
-
+function verificarGameOver() {
+    return new Promise((resolve, reject) => {
+        if (contenido[disparos].classList.contains("marcianos"))
+        {
+            // resultados.innerHTML = "GAME OVER";
+            clearInterval(marcianosId);
+            resolve("GAME OVER");
+        } else if (marBorrar.length === marcianos.length)
+        {
+            // resultados.innerHTML = "YOU WIN";
+            clearInterval(marcianosId);
+            reject("Has Ganado");
+        }
+    });
+}
 
 
 // Función para mover los marcianos y manejar el juego
@@ -69,19 +83,19 @@ function moverMarcianos() {
     const drchaMargen = marcianos[marcianos.length - 1] % width === width - 1;
     borrar();
 
-    if (drchaMargen && isGoingRight) {
+    if (drchaMargen && movDrch) {
         for (let i = 0; i < marcianos.length; i++) {
             marcianos[i] += width + 1;
             direccion = -1;
-            isGoingRight = false;
+            movDrch = false;
         }
     }
 
-    if (izqMargen && !isGoingRight) {
+    if (izqMargen && !movDrch) {
         for (let i = 0; i < marcianos.length; i++) {
             marcianos[i] += width - 1;
             direccion = 1;
-            isGoingRight = true;
+            movDrch = true;
         }
     }
 
@@ -91,10 +105,46 @@ function moverMarcianos() {
 
     dibujar();
 
-
+    verificarGameOver()
+        .then(() => {
+            alert("El juego ha terminado. GAME OVER");
+        })
+        .catch((error) => {
+            alert(error);
+        });
 }
 
 // Establecer intervalo para mover los marcianos
 marcianosId = setInterval(moverMarcianos, 600);
 
 // Función para el disparo del shooter
+function disparo(e) {
+    let balaId;
+    let posDisparo = disparos;
+
+    function bala() {
+        contenido[posDisparo].classList.remove("bala");
+        posDisparo -= width;
+        contenido[posDisparo].classList.add("bala");
+
+        if (contenido[posDisparo].classList.contains("marcianos")) {
+            contenido[posDisparo].classList.remove("bala");
+            contenido[posDisparo].classList.remove("marcianos");
+            contenido[posDisparo].classList.add("choque");
+
+            setTimeout(() => contenido[posDisparo].classList.remove("choque"), 300);
+            clearInterval(balaId);
+
+            const marBorrados = marcianos.indexOf(posDisparo);
+            marBorrar.push(marBorrados);
+            finResultado++;
+            resultados.innerHTML = finResultado;
+        }
+    }
+
+    if (e.key === "ArrowUp") {
+        balaId = setInterval(bala, 100);
+    }
+}
+
+document.addEventListener('keydown', disparo);
