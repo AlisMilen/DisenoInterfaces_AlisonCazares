@@ -49,9 +49,12 @@ h2
 }
 
 .bala {
-	background-color: orange;
+	background-image: url(imagenes/bala.png);
+	background-size: contain;
+    background-position: center;
+    object-fit: contain;
+    background-repeat: no-repeat;
 }
-
 .choque
 {
 	background-color: red;
@@ -63,6 +66,6 @@ h2
 .time-alert 
 {
 	display: none; /* El aviso estará oculto inicialmente */
-  }
+}
 
 /* ***************************************************** */

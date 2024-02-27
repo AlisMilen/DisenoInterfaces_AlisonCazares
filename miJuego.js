@@ -7,7 +7,7 @@ let disparos = 202;
 const width = 15;
 // ARRAY QUE SE USA PARA LOS MARCIANOS ELIMINADOS, POR EL MOMENTO NO HAY, ESTA VACIO
 const marBorrar = [];
-// SE USARÁ PARA EL INTERVALO DE TIEMPO- SERINTERVAL
+// SE USARÁ PARA EL INTERVALO DE TIEMPO- SETINTERVAL -MOVER MARCIANOS
 let marcianosId;
 // ESTO ES UNA VARIABLE QUE CONTROLA EL MOVIMIENTO A LA DERECHA. CUANDO SEA FALSE INDICARÁ IZQUIERDA
 let movDrch = true;
@@ -92,16 +92,20 @@ function disparador(e)
 // EVENTO DE PULSAR TECLA
 document.addEventListener("keydown", disparador);
 
-// Función para verificar si el juego ha terminado
+// SI EL JUEGO TERMINA SE VERIFICA
 function verificarGameOver() {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => 
+    {
+        // SI AUN HAY ELEMENTOS MARCIANOS EN EL ARRAY TABLA, EN LA POSICION DE DISPAROS ENTONCES
         if (contenido[disparos].classList.contains("marcianos"))
         {
-            clearInterval(marcianosId);
-            resolve("GAME OVER");
-        } else if (marBorrar.length === marcianos.length)
+            clearInterval(marcianosId);//DETIENE LA EJECUCION DEL INTERVALO DE MARCIANOS
+            resolve("GAME OVER");//SI HAY MARCIANOS GAME OVER
+        }
+        //COMPRUEBA SI HAY MARCIANOS ELIMINADOS
+        else if (marBorrar.length === marcianos.length)
         {
-            clearInterval(marcianosId);
+            clearInterval(marcianosId);//DETIENE LA EJECUCION DEL INTERVALO DE MARCIANOS
             reject("Has Ganado");
         }
     });
@@ -109,29 +113,39 @@ function verificarGameOver() {
 
 
 // Función para mover los marcianos y manejar el juego
-function moverMarcianos() {
+function moverMarcianos()
+{
+    // VERIFICAMOS SI EL MARCIANO MAS A LA IZQUIRDA ESTA EN EL BORDE
     const izqMargen = marcianos[0] % width === 0;
+    // IGUAL PERO PARA EL MARGEN DERECHO
+    // INDICE DEL ULTIMO MARCIANO, SI ES WIDTH -1, 
+    // SIGNIFICA QUE ESTA EN EL BORDE DERECHO: 15-1, YA ESTA AL FINAL
     const drchaMargen = marcianos[marcianos.length - 1] % width === width - 1;
     borrar();
-
-    if (drchaMargen && movDrch) {
-        for (let i = 0; i < marcianos.length; i++) {
-            marcianos[i] += width + 1;
-            direccion = -1;
-            movDrch = false;
+    // SI SE ESTAN MOVIENDO A LA DERECHA Y LLEGA AL FINAL, VA HACIA ABAJO
+    if (drchaMargen && movDrch)
+    {
+        for (let i = 0; i < marcianos.length; i++)
+        {
+            marcianos[i] += width + 1;//MOVEMOS HACIA ABAJO(CON +1)
+            direccion = -1; //HACIA LA IZQUIERDA
+            movDrch = false; //YA NO SE MUEVEN A LA DERECHA
+        }
+    }
+    //MOV IZQUIERDO Y MOVIMIENTO IZQ
+    if (izqMargen && !movDrch)
+    {
+        for (let i = 0; i < marcianos.length; i++)
+        {
+            marcianos[i] += width - 1;//
+            direccion = 1;//HACIA LA DERECHA
+            movDrch = true; //SE MUEVE A LA DRCHA
         }
     }
 
-    if (izqMargen && !movDrch) {
-        for (let i = 0; i < marcianos.length; i++) {
-            marcianos[i] += width - 1;
-            direccion = 1;
-            movDrch = true;
-        }
-    }
-
-    for (let i = 0; i < marcianos.length; i++) {
-        marcianos[i] += direccion;
+    for (let i = 0; i < marcianos.length; i++)
+    {
+        marcianos[i] += direccion;//SE ESTABLECE A CADA MARCIANO, LA DIRECCION CORRESPONDIENTE
     }
 
     dibujar();
@@ -145,43 +159,54 @@ function moverMarcianos() {
         });
 }
 
-// Establecer intervalo para mover los marcianos
+// EL INTERVALO DE MOVER LOS MARCIANOS
 marcianosId = setInterval(moverMarcianos, 500);
 
 // Función para el disparo del shooter
-function disparo(e) {
-    let balaId;
-    let posDisparo = disparos;
+function disparo(e)
+{
+    let balaId;//SE HACE PARA EL INTERVALO PARA MOVER LA BALA
+    let posDisparo = disparos;//PARA PONER LA POSICION INICIAL DEL DISPARADOR PARA QUE COMIENCEN IGUAL
+    // EL DISPARADOR QUE LA POSICION DE LA BALA
 
     function bala() {
-        contenido[posDisparo].classList.remove("bala");
-        posDisparo -= width;
+        contenido[posDisparo].classList.remove("bala");//NO VEREMOS LA BALA, YA QUE DESAPARECE DE SU POSICIÓN
+        posDisparo -= width;//MUEVE LA BALA HACIA ARRIBA CON -
+        // SE AÑADE LA CLASE BALA PARA QUE APAREZCA Y SE VEA EL MOVIMIENTO
         contenido[posDisparo].classList.add("bala");
 
-        if (contenido[posDisparo].classList.contains("marcianos")) {
+        // SI LA POSICION DE LA BALA CONTIENE AL MARCIANO
+        if (contenido[posDisparo].classList.contains("marcianos"))
+        {
+            // ELIMINA A BALA - NO SERÁ VISIBLE
             contenido[posDisparo].classList.remove("bala");
+            // ELIMINA A MARCIANO - NO SERÁ VISIBLE
             contenido[posDisparo].classList.remove("marcianos");
+            // ESTO ES MÁS PARA EL VISUAL, SE MOSTRARA CSS CHOQUE
             contenido[posDisparo].classList.add("choque");
 
+            // EL VISUAL DE CHOQUE SE EJECUTAA EN 300 MILISEGUNDOS, DESPUES DE ESTE TIEMPO DESAPARECE
             setTimeout(() => contenido[posDisparo].classList.remove("choque"), 300);
-            clearInterval(balaId);
+            clearInterval(balaId); //ESTO PARARÁ EL TIEMPO EN EL QUE LA BALA SE MUEVE HACIA ARRIBA
 
+            // PARA CONTROLAR LOS MARCIANOS BORRADOS
+            // BUSCA LA POSICION DEL MARCIANO CHOCADO
             const marBorrados = marcianos.indexOf(posDisparo);
             marBorrar.push(marBorrados);
-            finResultado++;
-            resultados.innerHTML = finResultado;
         }
     }
 
-    if (e.key === "ArrowUp") {
-        balaId = setInterval(bala, 100);
+    if (e.key === "ArrowUp") //SI LA TECLA ES LA FLECHA DE ARRIBA
+    {
+        balaId = setInterval(bala, 100); 
+        //PARA ESTABLECER EL TIEMPO PARA EL MOVIMIENTO 
+        // DE LA BALA HACIA ARRIBA Y SI CHOCA CON EL MARCIANO
     }
 }
 
 document.addEventListener('keydown', disparo);
 
 // ///////////////////WEB COMPONENT///////////////////////////////////////////
-
 class TimeAlert extends HTMLElement
 {
     constructor() 
@@ -199,13 +224,13 @@ class TimeAlert extends HTMLElement
         // MUESTRA EL AVISO, DESPUES DEL TIEMPO QUE SE ESTABLECE - SE EJECUTA
         this.showAlert(timeout);
     }
-  
+
     // MUESTRA EL AVISO EN EL TIEMPO
     showAlert(timeout) 
     {
         setTimeout(() => 
         {
-            alert('¡El tiempo está corriendo! ¡Date prisa! (${timeout} segundos)');
+            alert('¡El tiempo está corriendo! ¡Date prisa!');
         }, timeout * 1000);
     }
   }
