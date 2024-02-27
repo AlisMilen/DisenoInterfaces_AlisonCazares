@@ -1,31 +1,47 @@
+// SELECCIONAMOS EL ELEMENTO GRID Y RESULTADOS, DEL HTML
 const grid = document.querySelector(".grid");
 const resultados = document.querySelector(".resultados");
+// LA INICIAMOS CON 202, LA POSICION DEL DISPARADOR????
 let disparos = 202;
+// DEFINE EL ANCHO DEL TABLERO DEL JUEGO
 const width = 15;
+// ARRAY QUE SE USA PARA LOS MARCIANOS ELIMINADOS, POR EL MOMENTO NO HAY, ESTA VACIO
 const marBorrar = [];
+// SE USARÁ PARA EL INTERVALO DE TIEMPO- SERINTERVAL
 let marcianosId;
+// ESTO ES UNA VARIABLE QUE CONTROLA EL MOVIMIENTO A LA DERECHA. CUANDO SEA FALSE INDICARÁ IZQUIERDA
 let movDrch = true;
+// ESTO ES UNA VARIABLE QUE CONTROLA EL MOVIMIENTO A LA DERECHA. CUANDO SEA FALSE INDICARÁ IZQUIERDA
+// MANEJA LA CANTIDAD DE DESPLAZAMIENTO
 let direccion = 1;
 let finResultado = 0;
 
-// Creación del tablero
-for (let i = 0; i < width * width; i++) {
+// CREAMOS LOS ELEMENTOS DIV Y LOS AGREGAMOS EN EL GRID. CADA DIV SON CELDAS, ESTÁN LOS MARCIANOS Y EL DISPARADOR
+// SE CONTROLA EL MOVIMIENTO Y EL DESPLAZAMIENTO EN ESOS DIV
+for (let i = 0; i < width * width; i++) // CONTROLANDO QUE NO SE PASE DEL ANCHO DEL TABLERO
+{
     const espacio = document.createElement("div");
     grid.appendChild(espacio);
 }
 
+// NO SERÁ UN NODELIST SINO UN ARRAY DE JAVASCRIPT, ESTO GUARDADO EN CONTENIDO
 const contenido = Array.from(document.querySelectorAll(".grid div"));
 
-// Coordenadas de los marcianos
+// SEGUN EL ANCHO DE NUESTRO TABLERO, PONEMOS LA POSICION A LOS DIV QUE USAREMOS PARA LOS MARCIANOS, COMO UN ARRAY
 const marcianos = [
     0, 1, 2, 3, 4, 5, 6, 7,
     // 15, 16, 17, 18, 19, 20, 21, 22
 ];
 
-// Función para dibujar los marcianos en el tablero
-function dibujar() {
-    for (let i = 0; i < marcianos.length; i++) {
+///////////////////////////MARCIANOS - DISPARADOR/////////////////////////////////////////77
+function dibujar()
+{
+    for (let i = 0; i < marcianos.length; i++)
+    {   // EL IF NOS SIRVE PARA NO DIBUJAR UN MARCIANO ELIMINADO.
+        // SI MARCIANO(I) NO ESTA INCLUIDO EN EL ARRAY DE MARCIANOS BORRADOS ENTONCES:
         if (!marBorrar.includes(i)) {
+            // ESPECIFICAMOS QUE EN LA POSICION I DEL ARRAY TABLERO(CONTENIDO),
+            // SE AGREGARÁ LA CLASE CSS MARCIANOS(URL)
             contenido[marcianos[i]].classList.add("marcianos");
         }
     }
@@ -33,25 +49,41 @@ function dibujar() {
 
 dibujar();
 
-// Dibujar el shooter en su posición inicial
+// DISPARADOR YA TIENE UNA POSICIÓN INICIAL(DISPAROS), ASI QUE INDICAMOS QUE EN ESA POSICION DEL ARRAY DEL TABLERO
+// PONEMOS LA CLASS DISPARADOR(URL)
 contenido[disparos].classList.add("disparador");
 
-// Función para borrar los marcianos del tablero
-function borrar() {
-    for (let i = 0; i < marcianos.length; i++) {
+// 
+function borrar()
+{
+    for (let i = 0; i < marcianos.length; i++)
+    {
+        // EN EL ARRAY TABLA EL MARCIANO QUE ESTE EN LA POSICIÓN, 
+        // SE APLICAL LA PROPIEDAD REMOVE, A LA CLASS MARCIANOS.
         contenido[marcianos[i]].classList.remove("marcianos");
     }
 }
 
-// Función para mover el shooter
-function disparador(e) {
+// 
+function disparador(e)
+{
+    // SE ELIMINA EL DISPARADOR DE SU POSICION INICIAL
     contenido[disparos].classList.remove("disparador");
-    switch (e.key) {
+    switch (e.key) //PARA DIFERENCIAR LAS TECLAS
+    {
         case "ArrowLeft":
-            if (disparos % width !== 0) disparos -= 1;
+            // SI LA POSICION DISPAROS NO ESTA EN EL BORDE(NO LLEGA DISTINDO 0)
+            if (disparos % width !== 0)
+            {
+                disparos -= 1;//EL MOVIMIENTO VA A LA IZQUIERDA -1
+            }
             break;
         case "ArrowRight":
-            if (disparos % width < width - 1) disparos += 1;
+            // 
+            if (disparos % width < width - 1) 
+            {
+                disparos += 1;// EL MOVIMIENTO SE AGREGA UNO A LA DRCHA
+            }
             break;
     }
     contenido[disparos].classList.add("disparador");
@@ -64,12 +96,10 @@ function verificarGameOver() {
     return new Promise((resolve, reject) => {
         if (contenido[disparos].classList.contains("marcianos"))
         {
-            // resultados.innerHTML = "GAME OVER";
             clearInterval(marcianosId);
             resolve("GAME OVER");
         } else if (marBorrar.length === marcianos.length)
         {
-            // resultados.innerHTML = "YOU WIN";
             clearInterval(marcianosId);
             reject("Has Ganado");
         }
@@ -115,7 +145,7 @@ function moverMarcianos() {
 }
 
 // Establecer intervalo para mover los marcianos
-marcianosId = setInterval(moverMarcianos, 600);
+marcianosId = setInterval(moverMarcianos, 500);
 
 // Función para el disparo del shooter
 function disparo(e) {
@@ -148,3 +178,35 @@ function disparo(e) {
 }
 
 document.addEventListener('keydown', disparo);
+
+// ///////////////////WEB COMPONENT///////////////////////////////////////////
+
+class TimeAlert extends HTMLElement
+{
+    constructor() 
+    {
+      super();
+    }
+  
+    // Se ejecuta cuando el componente se agrega al DOM
+    connectedCallback()
+    {
+        // Obtener el tiempo de espera (en segundos) del atributo "timeout"
+        const timeout = this.getAttribute('timeout') || 60;
+    
+        // Mostrar el aviso de tiempo transcurrido
+        this.showAlert(timeout);
+    }
+  
+    // Método para mostrar el aviso
+    showAlert(timeout) 
+    {
+        setTimeout(() => 
+        {
+            alert('¡El tiempo está corriendo! ¡Date prisa! (${timeout} segundos)');
+        }, timeout * 1000); // Mostrar el primer alert después del tiempo especificado
+    }
+  }
+  
+// Registrar el componente personalizado
+customElements.define('time-alert', TimeAlert);
