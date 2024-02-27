@@ -221,8 +221,14 @@ class TimeAlert extends HTMLElement
         // Obtener el tiempo de espera (en segundos) del atributo "timeout"
         const timeout = this.getAttribute('timeout') || 60;
     
-        // MUESTRA EL AVISO, DESPUES DEL TIEMPO QUE SE ESTABLECE - SE EJECUTA
-        this.showAlert(timeout);
+        const juegoGanado = this.hasAttribute('juego-ganado');
+
+        // Mostrar el aviso solo si el juego no ha sido ganado
+        if(!juegoGanado)
+        {
+            // MUESTRA EL AVISO, DESPUES DEL TIEMPO QUE SE ESTABLECE - SE EJECUTA
+            this.showAlert(timeout);
+        }
     }
 
     // MUESTRA EL AVISO EN EL TIEMPO
