@@ -79,16 +79,17 @@ function disparador(e)
             }
             break;
         case "ArrowRight":
-            // 
-            if (disparos % width < width - 1) 
+            // SI EL DISPARADOR NO ESTÁ EN EL BORDE DERECHO DEL TABLERO
+            if (disparos % width < width - 1) //disparos + 1 < width * width
             {
                 disparos += 1;// EL MOVIMIENTO SE AGREGA UNO A LA DRCHA
             }
             break;
     }
+    // LA CLASE DISPARADOR, SE AÑADIRÁ EN LA NUEVA POSICION EN EL ARRAY TABLA, SEÑALADA SEGUN LA FLECHA PULSADA
     contenido[disparos].classList.add("disparador");
 }
-
+// EVENTO DE PULSAR TECLA
 document.addEventListener("keydown", disparador);
 
 // Función para verificar si el juego ha terminado
@@ -188,25 +189,26 @@ class TimeAlert extends HTMLElement
       super();
     }
   
-    // Se ejecuta cuando el componente se agrega al DOM
+    //SE EJECUTA CUANDO EL COMPONENTE SE AGREGA AL DOM
     connectedCallback()
     {
+        // SI NO HAY TIMEOUT, SE ESTABLECE UN TIEMPO DE 60 SEGUNDOS
         // Obtener el tiempo de espera (en segundos) del atributo "timeout"
         const timeout = this.getAttribute('timeout') || 60;
     
-        // Mostrar el aviso de tiempo transcurrido
+        // MUESTRA EL AVISO, DESPUES DEL TIEMPO QUE SE ESTABLECE - SE EJECUTA
         this.showAlert(timeout);
     }
   
-    // Método para mostrar el aviso
+    // MUESTRA EL AVISO EN EL TIEMPO
     showAlert(timeout) 
     {
         setTimeout(() => 
         {
             alert('¡El tiempo está corriendo! ¡Date prisa! (${timeout} segundos)');
-        }, timeout * 1000); // Mostrar el primer alert después del tiempo especificado
+        }, timeout * 1000);
     }
   }
   
-// Registrar el componente personalizado
+//TIME-ALERT COMPONENTE QUE SE UTILIZA EN EL NAVEGADOR <TIME-ALERT> Y LLAMA AL CLASS
 customElements.define('time-alert', TimeAlert);
