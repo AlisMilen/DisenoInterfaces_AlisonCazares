@@ -151,10 +151,10 @@ function moverMarcianos()
     dibujar();
 
     verificarGameOver()
-        .then(() => {
+        .then(() => { //SI EL JUEGO HA TERMINADO
             alert("El juego ha terminado. GAME OVER");
         })
-        .catch((error) => {
+        .catch((error) => { //SI EL JUEGO NO HA TERMINADO - EN ESTE CASO SE SUSTITUYE POR HA GANADO
             alert(error);
         });
 }
@@ -213,7 +213,7 @@ class TimeAlert extends HTMLElement
     {
       super();
     }
-  
+
     //SE EJECUTA CUANDO EL COMPONENTE SE AGREGA AL DOM
     connectedCallback()
     {
@@ -221,14 +221,14 @@ class TimeAlert extends HTMLElement
         // Obtener el tiempo de espera (en segundos) del atributo "timeout"
         const timeout = this.getAttribute('timeout') || 60;
     
-        const juegoGanado = this.hasAttribute('juego-ganado');
+        // const juegoGanado = this.hasAttribute('juego-ganado');
 
         // Mostrar el aviso solo si el juego no ha sido ganado
-        if(!juegoGanado)
-        {
+        // if(!juegoGanado)
+        // {
             // MUESTRA EL AVISO, DESPUES DEL TIEMPO QUE SE ESTABLECE - SE EJECUTA
             this.showAlert(timeout);
-        }
+        // }
     }
 
     // MUESTRA EL AVISO EN EL TIEMPO
