@@ -765,7 +765,7 @@ ul.sign li a i {
      font-weight: 700;
      line-height: 20px;
      text-transform: uppercase;
-     border-bottom: #020001 solid 3px;
+     border-bottom: #919193 solid 3px;
      display: inline-block;
      padding-bottom: 6px;
      transition: ease-in all 0.5s;
@@ -801,10 +801,308 @@ ul.sign li a i {
      border-width: 90px;
 }
 
+h2 {
+     color: #fff; /* Color del texto de los títulos h2 */
+  }
+ 
+.event-card {
+     margin-bottom: 20px;
+     padding: 15px;
+     background-color: #222; /* Color de fondo de las tarjetas */
+     border-radius: 10px;
+     color: #a6a6a6;
+     margin-bottom: 20px;
+  }
+  .event-card h3 {
+     margin-bottom: 10px;
+     color: #fff;
+  }
+  .event-card p {
+     margin-bottom: 5px;
+  }
+  .event-card a.btn {
+     color: #fff; /* Color del texto del botón */
+     background-color: #9999FF; /* Color de fondo del botón */
+     border: none;
+     border-radius: 5px;
+     padding: 5px 10px;
+     text-decoration: none;
+  }
+  .event-card a.btn:hover {
+     background-color: #6e6ed0; /* Cambio de color al pasar el cursor sobre el botón */
+  }
 
-/** end service section **/
+/* Estilos para la descripción del evento */
+.event-description {
+     color: white; /* Color blanco para el texto */
+     font-size: 16px; /* Tamaño de fuente */
+     line-height: 1.5; /* Espaciado entre líneas */
+ }
+ 
+ /* Estilos para la imagen */
+ .event-image {
+     max-width: 400px; 
+     height: auto; 
+     margin-top: 20px;
+     margin-bottom: 20px;
+ }
+ 
+ #source-calendar,
+ #destination-calendar {
+   float: left;
+    width: 600px;
+    margin-bottom: 20px; 
+    margin-left: 90px;
+    margin-right: 90px;
+    color: #fff;
+    width: 555px;
+ }
+
+ .danza_y_sombras {
+     margin-bottom: 20px;
+     margin-left: 90px;
+     margin-right: 90px;
+     /* padding: 15px; */
+     /* border-radius: 10px; */
+     color: #ffffff;
+  }
+
+  .danza_y_sombras h1 {
+     margin-bottom: 20px;
+     margin-top: 30px;
+     color: #6e6ed0;
+     font-size: 35px;
+  }
+
+  .danza_y_sombras h2 {
+     margin-bottom: 20px;
+     margin-top: 30px;
+     color: #6e6ed0;
+     font-size: 25px;
+  }
+
+  .danza_y_sombras h3 {
+     color: #b8b8b8;
+  }
+  /** end service section **/
 
 
+/** PAGO EVENTO SECTION **/
+
+.event-text {
+     margin-bottom: 20px;
+     margin-top: 40px;
+     margin-left: 90px;
+     color: #a1a1a1;
+ }
+
+ .event-text h1 {
+     font-size: 24px;
+     margin-bottom: 10px;
+     color: #6e6ed0;
+ }
+
+ .event-text h2 {
+     font-size: 20px;
+     margin-bottom: 10px;
+     color: #a1a1a1;
+ }
+
+.card {
+     margin: 0 auto; /* Para centrar horizontalmente */
+     border-radius: 15px;
+     background-color: #262644;
+     padding: 20px;
+     width: 300%; /* Ancho del 80% de la ventana del navegador */
+     max-width: 600px; /* Ancho máximo de 600px */
+ }
+   
+ .containerpago {
+     max-width: 600px;
+     margin: 0 auto;
+     padding: 20px;
+     text-align: center;
+     border-radius: 15px;
+     margin-top: 50px;
+ }
+ 
+ .containerpago h1, .containerpago p {
+     margin: 10px 0;
+ }
+ 
+ .button-containerpago {
+     margin-top: 20px;
+ }
+
+ .session-btn {
+     padding: 10px 20px;
+     margin: 0 10px;
+     background-color: #6e6ed0;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+ }
+ 
+ .session-btn:hover {
+     background-color: #55559c;
+ }
+   
+   .form-card {
+     background-color: #262644;
+     border-radius: 15px;
+     padding: 20px;
+     margin-top: 20px;
+   }
+
+
+   .card h2{
+     color: #fff;
+   }
+
+   .card h3{
+     color: #fff;
+     margin-top: 20px;
+   }
+
+   .card p{
+     color: #fff;
+   }
+
+   
+   .form-group {
+     margin-bottom: 15px;
+     color: #fff;
+   }
+   
+   button {
+     cursor: pointer;
+     background-color: #fc003f;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     padding: 10px 20px;
+ }
+ 
+ button:hover {
+     background-color: #fc003f;
+ }
+   
+   #continue-btn {
+     background-color: #6e6ed0;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     padding: 10px 20px;
+   }
+   
+   #continue-btn:hover {
+     background-color: #46469c;
+   }
+   
+   input[type="text"],
+   input[type="email"],
+   select {
+     width: calc(100% - 20px);
+     padding: 10px;
+     border-radius: 5px;
+     border: 1px solid #ccc;
+     box-sizing: border-box;
+   }
+   
+   input[type="text"]:focus,
+   input[type="email"]:focus,
+   select:focus {
+     outline: none;
+     border-color: #007bff;
+   }
+   
+   input[type="text"][readonly],
+   input[type="email"][readonly],
+   select[readonly] {
+     background-color: #f4f4f4;
+   }
+   
+   .expiration-container {
+     display: flex;
+     align-items: center; /* Centra verticalmente los elementos */
+ }
+ 
+ .expiration-container select {
+     margin-right: 10px; /* Espacio entre los dos selects */
+ }
+ 
+ 
+/** END PAGO EVENTO SECTION **/
+
+ /** PAGO EXITOSO SECTION **/
+
+.confirmation-table {
+     width: 100%;
+     max-width: 500px;
+     margin: 0 auto;
+     color: #fff;
+     margin-top: 20px;
+ }
+ 
+ .confirmation-table td {
+     padding: 10px;
+     box-sizing: border-box;
+ }
+ 
+ .confirmation-table h1 {
+     font-size: 24px;
+     margin: 0;
+     color: #fff;
+ }
+ 
+ .confirmation-table p {
+     margin: 5px 0;
+ }
+ 
+ .confirmation-table img {
+     max-width: 80px;
+     height: auto;
+ }
+ 
+ .confirmation-table #details-btn {
+     background-color: #6e6ed0;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     padding: 10px 20px;
+     cursor: pointer;
+ }
+ 
+ .confirmation-table #details-btn:hover {
+     background-color: #46469c;
+ }
+
+ .confirmation-table .button-container {
+     display: flex;
+     justify-content: center; /* Centrado horizontal */
+     align-items: center; /* Centrado vertical */
+ }
+ 
+ .cardce {
+     margin: 0 auto; /* Para centrar horizontalmente */
+     border-radius: 15px;
+     background-color: #0d0d0d;
+     padding: 20px;
+     width: 300%; /* Ancho del 80% de la ventana del navegador */
+     max-width: 600px; /* Ancho máximo de 600px */
+     margin-top: 30px;
+ }
+
+ .success-message {
+     color: green; /* Establece el color del texto en verde */
+ }
+
+ .datos-usu {
+     color: rgb(69, 69, 69); /* Establece el color del texto en verde */
+ }
+
+ /** END PAGO EXITOSO SECTION **/
 /** portfolio section **/
 
 .portfolio {
@@ -1246,6 +1544,7 @@ ul.social_icont li a {
 
 /** end contact  section **/
 
+
 /** INICIAR SESION  **/
 /* Estilos para el formulario de inicio de sesión */
 .loginForm {
@@ -1360,6 +1659,7 @@ ul.social_icont li a {
  }
  
 /* END REGISTRO */
+
 
 
 /** footer **/
