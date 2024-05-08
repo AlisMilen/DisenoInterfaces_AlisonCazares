@@ -10,6 +10,8 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
         if (this.readyState == 4 && this.status == 200) {
             var response = this.responseText;
             if (response.trim() === "success") {
+                // Establecer la cookie de sesión
+                setSessionCookie("loggedIn", "true");
                 alert("¡Inicio de sesión exitoso!");
                 window.location.href = "dashboard.html"; // Redireccionar al dashboard
             } else {
@@ -21,3 +23,11 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("username=" + username + "&password=" + password);
 });
+
+// Función para establecer una cookie de sesión
+function setSessionCookie(name, value) {
+    var date = new Date();
+    date.setTime(date.getTime() + (30 * 60 * 1000)); // 30 minutos de sesión
+    var expires = "; expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + expires + "; path=/";
+}
